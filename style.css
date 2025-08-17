@@ -6,13 +6,14 @@
   --muted: #475569;
   --card: #f8fafc;
   --border: #e2e8f0;
-  --accent: #4f46e5;
-  --accent-2: #22d3ee;
+  --accent: #4f46e5;   /* light: indigo-600 */
+  --accent-2: #22d3ee; /* light: cyan-400 */
   --accent-ink: #ffffff;
 
   --radius: 14px;
   --shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
 
+  /* Fluid type scale */
   --step--1: clamp(0.9rem, 0.86rem + 0.2vw, 1rem);
   --step-0: clamp(1rem, 0.9rem + 0.6vw, 1.125rem);
   --step-1: clamp(1.25rem, 1.1rem + 1vw, 1.5rem);
@@ -27,8 +28,8 @@
     --muted: #a1a1aa;
     --card: #0f172a;
     --border: #1f2937;
-    --accent: #7c3aed;
-    --accent-2: #06b6d4;
+    --accent: #7c3aed;   /* dark: violet-600 */
+    --accent-2: #06b6d4; /* dark: cyan-500 */
     --shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
   }
 }
@@ -48,6 +49,7 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 
+  /* Scrollbar colors (Firefox) */
   scrollbar-color: color-mix(in srgb, var(--accent) 35%, var(--bg)) color-mix(in srgb, var(--bg) 96%, transparent);
   scrollbar-width: thin;
 }
@@ -97,7 +99,7 @@ a:hover { opacity: 0.9; }
 /* Anchor offset for sticky header */
 [id] { scroll-margin-top: 5rem; }
 
-/* Scroll progress bar */
+/* Scroll progress bar (top) */
 .progress {
   position: fixed; top: 0; left: 0; right: 0; height: 3px;
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
@@ -262,7 +264,7 @@ nav {
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--fg) 6%, transparent);
   pointer-events: none;
 }
-/* Premium hover sheen sweep (animated in hover) */
+/* Premium hover sheen sweep */
 .card::after {
   content: ""; position: absolute; inset: 0;
   pointer-events: none; opacity: 0;
@@ -308,6 +310,7 @@ nav {
 .btn:hover { filter: brightness(1.06); transform: translateY(-1px); box-shadow: 0 10px 22px rgba(79,70,229,0.22); }
 .btn.small { padding: 0.45rem 0.7rem; font-size: var(--step--1); }
 .btn.outline { background: transparent; color: var(--fg); border-color: var(--border); box-shadow: none; }
+/* Shine sweep on buttons */
 .btn::after {
   content: ""; position: absolute; top: 0; bottom: 0; left: -30%;
   width: 30%; background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
@@ -317,8 +320,34 @@ nav {
 
 .link { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px; }
 
+/* Icon helper for buttons/links */
+.icon {
+  width: 18px; height: 18px;
+  margin-right: 0.5rem;
+  display: inline-block;
+  fill: currentColor; /* inherit text color */
+}
+.btn.small .icon { width: 16px; height: 16px; }
+
 /* Contact */
-.contact-grid { display: grid; gap: 0.6rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.contact-grid {
+  display: grid;
+  gap: 0.6rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* wider cards to avoid wrapping */
+}
+/* Responsive safeguard for very small screens */
+@media (max-width: 420px) {
+  .contact-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+}
+@media (max-width: 360px) {
+  .contact-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+}
+
+/* Keep contact buttons on one line and left-align content */
+.contact-grid .btn {
+  white-space: nowrap;
+  justify-content: flex-start;
+}
 
 /* Footer */
 .site-footer { border-top: 1px solid var(--border); padding: 1.2rem 0; margin-top: 1rem; }
@@ -354,7 +383,7 @@ nav {
   100% { background-position: 100px 60px; }
 }
 
-/* Reduced motion */
+/* Reduced motion: disable fancy effects */
 @media (prefers-reduced-motion: reduce) {
   body::before,
   .hero-text h1,
@@ -368,7 +397,7 @@ nav {
   }
 }
 
-/* ========== Explicit theme overrides (fixes toggle) ========== */
+/* ===== Explicit theme overrides (for toggle) ===== */
 :root[data-theme="light"] {
   --bg: #ffffff;
   --fg: #0f172a;
