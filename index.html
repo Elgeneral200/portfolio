@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Muhammad Fathi — Data & ML Portfolio</title>
+  <title>Muhammad Fathi Portfolio</title>
   <meta name="description" content="Muhammad Fathi — Data/ML projects in Python, C++, and SQL. 3rd-year CS student specializing in AI. Explore projects: Car Sale Management System, Interval Scheduler, City Hospital Management. Contact: mudiifathii@gmail.com." />
   <meta name="author" content="Muhammad Fathi" />
   <meta name="theme-color" content="#4f46e5" />
@@ -31,7 +31,12 @@
   <link rel="preload" as="image" href="images/muhammad-fathi.jpg" fetchpriority="high">
 
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+  <!-- Tab icons (your logo). Add 16×16 and 32×32 PNGs for best crispness if available. -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/mf-logo-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/mf-logo-16.png">
+  <link rel="icon" href="images/mf-logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="images/mf-logo.png" />
 </head>
 <body>
   <!-- Scroll progress bar -->
@@ -79,13 +84,14 @@
             Contact
           </a>
         </li>
+        <!-- Theme + language appended and reordered by JS -->
         <li><button id="theme-toggle" class="btn outline small" type="button" aria-label="Toggle theme">🌓</button></li>
       </ul>
     </nav>
   </header>
 
   <main id="content">
-    <!-- Hero (responsive circular/rectangular photo) -->
+    <!-- Hero -->
     <section class="hero container" aria-label="Intro">
       <div class="hero-text" data-reveal style="--reveal-delay:.05s">
         <h1>I build data & ML solutions with Python, C++, and SQL.</h1>
@@ -204,7 +210,7 @@
       </p>
     </section>
 
-    <!-- Skills (panel) -->
+    <!-- Skills -->
     <section id="skills" class="container section panel" aria-label="Skills">
       <h2>Skills</h2>
       <ul class="chips" aria-label="Tools & technologies" data-reveal>
@@ -213,7 +219,7 @@
       </ul>
     </section>
 
-    <!-- Résumé (panel) -->
+    <!-- Résumé -->
     <section id="resume" class="container section panel" aria-label="Résumé">
       <h2>Résumé</h2>
       <div class="resume-card" data-reveal>
@@ -233,7 +239,7 @@
       </div>
     </section>
 
-    <!-- Contact (3 + 3 layout) -->
+    <!-- Contact -->
     <section id="contact" class="container section" aria-label="Contact">
       <h2>Let’s work together</h2>
       <p data-reveal>I reply within 24 hours.</p>
@@ -339,7 +345,7 @@
       }
     });
 
-    // Active nav
+    // Active nav highlight
     const sections = [...document.querySelectorAll('main section[id]')];
     const navLinks = [...document.querySelectorAll('header .nav a[href^="#"]')];
     function setActive(id) {
@@ -404,27 +410,6 @@
       updateCount();
     })();
 
-    // GitHub stars (cached per session)
-    (async function loadStars() {
-      const metas = document.querySelectorAll('.repo-meta[data-repo]');
-      if (!metas.length) return;
-      const cache = JSON.parse(sessionStorage.getItem('ghstars') || '{}');
-
-      for (const node of metas) {
-        const repo = node.dataset.repo;
-        try {
-          const data = cache[repo] || await fetch(`https://api.github.com/repos/${repo}`).then(r => r.json());
-          if (!cache[repo]) {
-            cache[repo] = { stargazers_count: data.stargazers_count || 0 };
-            sessionStorage.setItem('ghstars', JSON.stringify(cache));
-          }
-          node.querySelector('[data-stars]').textContent = (cache[repo].stargazers_count ?? 0);
-        } catch {
-          node.querySelector('[data-stars]').textContent = '0';
-        }
-      }
-    })();
-
     // Reveal on scroll (respects reduced-motion)
     (function () {
       const els = document.querySelectorAll('[data-reveal]');
@@ -450,14 +435,14 @@
       window.addEventListener('resize', onScroll);
     })();
 
-    // Parallax tilt on cards (desktop only, respects reduced motion)
+    // Parallax tilt on cards (desktop only)
     (function(){
       const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
       if (prefersReduced || !canHover) return;
 
-      const MAX_TILT = 6; // degrees
-      const Z_LIFT = 10;  // px
+      const MAX_TILT = 6;
+      const Z_LIFT = 10;
 
       document.querySelectorAll('.card[data-tilt]').forEach(card => {
         card.style.transformStyle = 'preserve-3d';
@@ -474,14 +459,15 @@
           card.style.transform = `translateY(-4px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(${Z_LIFT}px)`;
         }
 
-        function handleLeave() {
-          card.style.transform = '';
-        }
+        function handleLeave() { card.style.transform = ''; }
 
         card.addEventListener('mousemove', handleMove);
         card.addEventListener('mouseleave', handleLeave);
       });
     })();
   </script>
+
+  <!-- Arabic/English toggle + translations + nav order + UI polish -->
+  <script defer src="i18n-toggle.js"></script>
 </body>
 </html>
