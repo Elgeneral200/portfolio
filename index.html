@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Muhammad Fathi — Data & ML Portfolio</title>
+  <meta name="description" content="Muhammad Fathi — Data/ML projects in Python, C++, and SQL. 3rd-year CS student specializing in AI. Explore projects: Car Sale Management System, Interval Scheduler, City Hospital Management. Contact: mudiifathii@gmail.com." />
+  <meta name="author" content="Muhammad Fathi" />
+  <meta name="theme-color" content="#4f46e5" />
+
+  <meta property="og:site_name" content="Muhammad Fathi — Data & ML Portfolio" />
+  <meta property="og:title" content="Muhammad Fathi — Data & ML Portfolio" />
+  <meta property="og:description" content="Data/ML projects in Python, C++, and SQL. Explore real, hands-on work and get in touch." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://your-actual-domain.com" />
+  <meta property="og:image" content="https://your-actual-domain.com/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Muhammad Fathi — Data & ML Portfolio" />
+  <meta name="twitter:description" content="Data/ML projects in Python, C++, and SQL. Explore real, hands-on work and get in touch." />
+  <meta name="twitter:image" content="https://your-actual-domain.com/og-image.jpg" />
+  <link rel="canonical" href="https://your-actual-domain.com" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="preload" as="image" href="images/muhammad-fathi.jpg" fetchpriority="high">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+
+  <header class="site-header" id="home">
+    <nav class="container" aria-label="Primary">
+      <a class="logo" href="#home" aria-label="Go to home">Muhammad Fathi</a>
+
+      <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">☰</button>
+
+      <ul id="primary-nav" class="nav" data-open="false">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="resume.pdf" target="_blank" rel="noopener">Résumé</a></li>
+        <li><button id="theme-toggle" class="btn outline small" type="button" aria-label="Toggle theme">🌓</button></li>
+        <li><a href="#contact" class="btn small">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="content">
+    <section class="hero container" aria-label="Intro">
+      <div class="hero-text">
+        <h1>I build data & ML solutions with Python, C++, and SQL.</h1>
+        <p>
+          I’m a 3rd-year Computer Science student at Ahram Canadian University (AI specialization),
+          and enrolled in the AI & Data Science diploma by Egypt’s Digital Egypt Pioneers Initiative (MCIT).
+          I turn data into practical outcomes through clean code, strong algorithms, and reliable databases.
+        </p>
+        <ul class="chips" aria-label="Core skills">
+          <li>Python</li><li>C++</li><li>PostgreSQL</li><li>AI & Data Science</li><li>OOP</li><li>Algorithms & Data Structures</li>
+        </ul>
+        <div class="cta">
+          <a class="btn" href="#projects">See projects</a>
+          <a class="link" href="resume.pdf" target="_blank" rel="noopener">View résumé →</a>
+        </div>
+      </div>
+
+      <figure class="hero-media">
+        <div class="avatar">
+          <img src="images/muhammad-fathi.jpg" alt="Headshot of Muhammad Fathi" width="800" height="1000" decoding="async" fetchpriority="high" />
+        </div>
+      </figure>
+    </section>
+
+    <section id="projects" class="container section" aria-label="Featured projects">
+      <h2>Featured projects</h2>
+
+      <nav class="filters" aria-label="Filter projects">
+        <ul class="chips">
+          <li><button class="chip is-active" data-filter="all" aria-pressed="true">All</button></li>
+          <li><button class="chip" data-filter="python">Python</button></li>
+          <li><button class="chip" data-filter="cpp">C++</button></li>
+          <li><button class="chip" data-filter="sql">SQL</button></li>
+          <li><button class="chip" data-filter="gui">GUI</button></li>
+        </ul>
+      </nav>
+
+      <div class="grid">
+        <article class="card" data-tags="python, gui, sql, sqlite">
+          <img src="images/car-sale.png" alt="Car Sale Management System GUI showing inventory and transactions" loading="lazy" decoding="async" width="1200" height="675" sizes="(min-width: 900px) 33vw, 100vw" />
+          <div class="card-body">
+            <h3>Car Sale Management System</h3>
+            <p>Python OOP + PySide6 GUI with SQLite. Manage inventory, customers, transactions; analytics and Excel export.</p>
+            <ul class="tags"><li>Python</li><li>OOP</li><li>GUI</li><li>SQLite</li></ul>
+            <p class="repo-meta" data-repo="Elgeneral200/Car-Management-System-">★ <span data-stars>–</span></p>
+            <div class="actions">
+              <a class="btn small" href="projects/car-sale.html">Case study</a>
+              <a class="link" href="https://github.com/Elgeneral200/Car-Management-System-" target="_blank" rel="noopener">Code →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-tags="cpp, algorithms, cli">
+          <img src="images/Interval-Scheduler.png" alt="Interval Scheduler CLI running test cases (greedy strategy)" loading="lazy" decoding="async" width="1200" height="675" sizes="(min-width: 900px) 33vw, 100vw" />
+          <div class="card-body">
+            <h3>Interval Scheduler</h3>
+            <p>C++ greedy interval partitioning with a menu-driven CLI to compute minimum rooms/resources for overlapping intervals.</p>
+            <ul class="tags"><li>C++</li><li>Greedy</li><li>CLI</li><li>Algorithms</li></ul>
+            <p class="repo-meta" data-repo="Elgeneral200/interval-scheduler">★ <span data-stars>–</span></p>
+            <div class="actions">
+              <a class="btn small" href="projects/interval-scheduler.html">Case study</a>
+              <a class="link" href="https://github.com/Elgeneral200/interval-scheduler" target="_blank" rel="noopener">Code →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-tags="sql, database, crud, gui, python">
+          <img src="images/city-hospital.jpg" alt="City Hospital Management GUI with patient and appointment records" loading="lazy" decoding="async" width="1200" height="675" sizes="(min-width: 900px) 33vw, 100vw" />
+          <div class="card-body">
+            <h3>City Hospital Management (GUI)</h3>
+            <p>Python + PySide6 GUI with SQLite. Manage patients, staff, departments, appointments; dark mode dashboard and stats.</p>
+            <ul class="tags"><li>Python</li><li>GUI</li><li>SQLite</li><li>CRUD</li></ul>
+            <p class="repo-meta" data-repo="Elgeneral200/Depi_Amit_AI_BNS3">★ <span data-stars>–</span></p>
+            <div class="actions">
+              <a class="btn small" href="projects/city-hospital.html">Case study</a>
+              <a class="link" href="https://github.com/Elgeneral200/Depi_Amit_AI_BNS3/tree/main/Final%20Project%20Python/Task%207" target="_blank" rel="noopener">Code →</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <p class="all-projects">See more on <a href="https://github.com/Elgeneral200" target="_blank" rel="noopener">GitHub →</a></p>
+    </section>
+
+    <section id="about" class="container section" aria-label="About">
+      <h2>About</h2>
+      <p>I’m Muhammad Fathi, a Data/ML-focused developer who enjoys building practical, maintainable solutions. Strengths include OOP, algorithms, and data structures across Python, C++, and SQL. I’m open to internships, junior roles, and freelance work—especially where I can deliver measurable value and keep learning.</p>
+    </section>
+
+    <section id="skills" class="container section" aria-label="Skills">
+      <h2>Skills</h2>
+      <ul class="chips" aria-label="Tools & technologies">
+        <li>Python</li><li>NumPy</li><li>Pandas</li><li>scikit-learn</li><li>C++</li><li>PostgreSQL</li><li>SQLite</li><li>SQL</li><li>Git</li><li>Linux</li>
+      </ul>
+    </section>
+
+    <section id="resume" class="container section" aria-label="Résumé">
+      <h2>Résumé</h2>
+      <div class="resume-card">
+        <a class="preview" href="resume.pdf" target="_blank" rel="noopener" aria-label="Open résumé PDF in a new tab">
+          <img src="images/resume-cover.png" srcset="images/resume-cover.png 807w, images/resume-cover@2x.png 1614w" sizes="(min-width: 900px) 800px, 92vw" alt="Résumé header — Muhammad Fathi, email: mudiifathii@gmail.com" width="807" height="349" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='images/resume-cover.png'; this.removeAttribute('srcset');" />
+        </a>
+        <div class="resume-actions">
+          <a class="btn" href="resume.pdf" target="_blank" rel="noopener">View PDF</a>
+          <a class="btn outline" href="resume.pdf" download>Download PDF</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="container section" aria-label="Contact">
+      <h2>Let’s work together</h2>
+      <p>I reply within 24 hours.</p>
+      <div class="contact-grid">
+        <a class="btn" href="mailto:mudiifathii@gmail.com">mudiifathii@gmail.com</a>
+        <a class="btn outline" href="https://github.com/Elgeneral200" target="_blank" rel="noopener" aria-label="GitHub">GitHub: Elgeneral200</a>
+        <a class="btn outline" href="https://www.linkedin.com/in/muhammad-fathi-526745287" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn: Muhammad Fathi</a>
+        <a class="btn outline" href="tel:+201147422177" aria-label="Call Muhammad Fathi">Phone: +20 1147422177</a>
+        <a class="btn outline" href="resume.pdf" download>Download résumé</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Muhammad Fathi</p>
+      <div class="social">
+        <a href="https://github.com/Elgeneral200" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+        <a href="https://www.linkedin.com/in/muhammad-fathi-526745287" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+        <a href="mailto:mudiifathii@gmail.com" aria-label="Email">Email</a>
+        <a href="resume.pdf" target="_blank" rel="noopener" aria-label="Résumé">Résumé</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "Person", "name": "Muhammad Fathi", "jobTitle": "Data/ML Developer (Student)", "email": "mailto:mudiifathii@gmail.com", "telephone": "+201147422177", "sameAs": ["https://github.com/Elgeneral200","https://www.linkedin.com/in/muhammad-fathi-526745287"], "url": "https://your-actual-domain.com" }
+  </script>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.getElementById('primary-nav');
+    toggle?.addEventListener('click', () => {
+      const open = nav.getAttribute('data-open') === 'true';
+      nav.setAttribute('data-open', String(!open));
+      toggle.setAttribute('aria-expanded', String(!open));
+    });
+
+    document.querySelectorAll('#primary-nav a[href^="#"]').forEach(a => {
+      a.addEventListener('click', () => { nav?.setAttribute('data-open', 'false'); toggle?.setAttribute('aria-expanded', 'false'); });
+    });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { nav?.setAttribute('data-open', 'false'); toggle?.setAttribute('aria-expanded', 'false'); }
+    });
+
+    const sections = [...document.querySelectorAll('main section[id]')];
+    const navLinks = [...document.querySelectorAll('header .nav a[href^="#"]')];
+    function setActive(id) {
+      navLinks.forEach(a => a.getAttribute('href') === `#${id}` ? a.setAttribute('aria-current','page') : a.removeAttribute('aria-current'));
+    }
+    const io = new IntersectionObserver(entries => { entries.forEach(entry => { if (entry.isIntersecting) setActive(entry.target.id); }); }, { rootMargin: '-40% 0px -55% 0px' });
+    sections.forEach(sec => io.observe(sec));
+
+    (function () {
+      const root = document.documentElement;
+      const stored = localStorage.getItem('theme');
+      if (stored) root.setAttribute('data-theme', stored);
+      const btn = document.getElementById('theme-toggle');
+      btn?.addEventListener('click', () => {
+        const cur = root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const next = cur === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next); localStorage.setItem('theme', next);
+      });
+    })();
+
+    (function () {
+      const filterBtns = document.querySelectorAll('.filters [data-filter]');
+      const cards = document.querySelectorAll('#projects .card');
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => { b.classList.remove('is-active'); b.removeAttribute('aria-pressed'); });
+          btn.classList.add('is-active'); btn.setAttribute('aria-pressed', 'true');
+          const f = btn.dataset.filter;
+          cards.forEach(card => {
+            const tags = (card.dataset.tags || '').toLowerCase();
+            card.hidden = f !== 'all' && !tags.includes(f);
+          });
+        });
+      });
+    })();
+
+    (async function loadStars() {
+      const metas = document.querySelectorAll('.repo-meta[data-repo]');
+      if (!metas.length) return;
+      const cache = JSON.parse(sessionStorage.getItem('ghstars') || '{}');
+      for (const node of metas) {
+        const repo = node.dataset.repo;
+        try {
+          const data = cache[repo] || await fetch(`https://api.github.com/repos/${repo}`).then(r => r.json());
+          if (!cache[repo]) { cache[repo] = { stargazers_count: data.stargazers_count || 0 }; sessionStorage.setItem('ghstars', JSON.stringify(cache)); }
+          node.querySelector('[data-stars]').textContent = (cache[repo].stargazers_count ?? 0);
+        } catch { node.querySelector('[data-stars]').textContent = '0'; }
+      }
+    })();
+  </script>
+</body>
+</html>

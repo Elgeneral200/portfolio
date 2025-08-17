@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Interval Scheduler — Case Study | Muhammad Fathi</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <header class="site-header"><nav class="container" aria-label="Primary">
+    <a class="logo" href="../#projects">← Back to portfolio</a>
+    <ul class="nav">
+      <li><a href="../#projects">Projects</a></li>
+      <li><a href="../#about">About</a></li>
+      <li><a href="../resume.pdf" target="_blank" rel="noopener">Résumé</a></li>
+      <li><a href="../#contact" class="btn small">Contact</a></li>
+    </ul>
+  </nav></header>
+
+  <main class="container section prose" id="content">
+    <p class="breadcrumbs">Projects / Case study</p>
+    <h1>Interval Scheduler</h1>
+    <div class="meta-row">
+      <span class="meta-pill">Solo • 2024</span>
+      <span class="meta-pill">C++</span><span class="meta-pill">Greedy</span><span class="meta-pill">CLI</span>
+    </div>
+
+    <div class="project-hero">
+      <img src="../images/Interval-Scheduler.png" alt="Interval Scheduler CLI — menu-driven interface" width="1600" height="900" loading="lazy" decoding="async">
+    </div>
+
+    <h2>Problem</h2>
+    <p>Scheduling overlapping intervals (e.g., rooms, resources) requires computing the minimum number of resources needed. Doing this manually is hard and error-prone.</p>
+
+    <h2>Approach</h2>
+    <ul>
+      <li>OOP model: <em>Interval</em> (time range) and <em>Scheduler</em> (allocations).</li>
+      <li>Greedy interval partitioning to minimize rooms/resources.</li>
+      <li>Sorted by start time; efficient room-availability checks.</li>
+      <li>Menu-driven CLI for input, validation, and results.</li>
+      <li>Enhanced readability with colored text and ASCII UI (Windows Console).</li>
+      <li>Robust error handling and input validation.</li>
+    </ul>
+
+    <h2>Results / Impact</h2>
+    <ul>
+      <li>Fast computation of the minimum number of rooms required.</li>
+      <li>Clear, interactive CLI improved usability.</li>
+      <li>Demonstrates practical use of greedy algorithms in scheduling.</li>
+    </ul>
+
+    <h2>Stack</h2>
+    <p>C++ (MinGW), Windows Console API</p>
+
+    <h2>Links</h2>
+    <p>
+      <a class="btn" href="https://github.com/Elgeneral200/interval-scheduler" target="_blank" rel="noopener">Repository</a>
+    </p>
+  </main>
+</body>
+</html>
