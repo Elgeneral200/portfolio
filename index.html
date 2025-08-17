@@ -9,29 +9,34 @@
   <meta name="author" content="Muhammad Fathi" />
   <meta name="theme-color" content="#4f46e5" />
 
+  <!-- Open Graph / Twitter -->
   <meta property="og:site_name" content="Muhammad Fathi — Data & ML Portfolio" />
   <meta property="og:title" content="Muhammad Fathi — Data & ML Portfolio" />
   <meta property="og:description" content="Data/ML projects in Python, C++, and SQL. Explore real, hands-on work and get in touch." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://your-actual-domain.com" />
-  <meta property="og:image" content="https://your-actual-domain.com/og-image.jpg" />
+  <meta property="og:url" content="https://elgeneral200.github.io/portfolio/" />
+  <meta property="og:image" content="https://elgeneral200.github.io/portfolio/images/og-image.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Muhammad Fathi — Data & ML Portfolio" />
   <meta name="twitter:description" content="Data/ML projects in Python, C++, and SQL. Explore real, hands-on work and get in touch." />
-  <meta name="twitter:image" content="https://your-actual-domain.com/og-image.jpg" />
-  <link rel="canonical" href="https://your-actual-domain.com" />
+  <meta name="twitter:image" content="https://elgeneral200.github.io/portfolio/images/og-image.jpg" />
+  <link rel="canonical" href="https://elgeneral200.github.io/portfolio/" />
 
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Preload hero image for better LCP -->
   <link rel="preload" as="image" href="images/muhammad-fathi.jpg" fetchpriority="high">
+
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 </head>
 <body>
   <a class="skip" href="#content">Skip to content</a>
 
+  <!-- Header / Nav -->
   <header class="site-header" id="home">
     <nav class="container" aria-label="Primary">
       <a class="logo" href="#home" aria-label="Go to home">Muhammad Fathi</a>
@@ -49,6 +54,7 @@
   </header>
 
   <main id="content">
+    <!-- Hero (with photo) -->
     <section class="hero container" aria-label="Intro">
       <div class="hero-text">
         <h1>I build data & ML solutions with Python, C++, and SQL.</h1>
@@ -68,14 +74,21 @@
 
       <figure class="hero-media">
         <div class="avatar">
-          <img src="images/muhammad-fathi.jpg" alt="Headshot of Muhammad Fathi" width="800" height="1000" decoding="async" fetchpriority="high" />
+          <img
+            src="images/muhammad-fathi.jpg"
+            alt="Headshot of Muhammad Fathi"
+            width="800" height="1000"
+            decoding="async" fetchpriority="high"
+          />
         </div>
       </figure>
     </section>
 
+    <!-- Projects -->
     <section id="projects" class="container section" aria-label="Featured projects">
       <h2>Featured projects</h2>
 
+      <!-- Filters -->
       <nav class="filters" aria-label="Filter projects">
         <ul class="chips">
           <li><button class="chip is-active" data-filter="all" aria-pressed="true">All</button></li>
@@ -85,10 +98,17 @@
           <li><button class="chip" data-filter="gui">GUI</button></li>
         </ul>
       </nav>
+      <p id="filter-count" aria-live="polite" class="repo-meta">Showing 3 projects</p>
 
       <div class="grid">
+        <!-- Car Sale Management System -->
         <article class="card" data-tags="python, gui, sql, sqlite">
-          <img src="images/car-sale.png" alt="Car Sale Management System GUI showing inventory and transactions" loading="lazy" decoding="async" width="1200" height="675" sizes="(min-width: 900px) 33vw, 100vw" />
+          <img
+            src="images/car-sale.png"
+            alt="Car Sale Management System GUI showing inventory and transactions"
+            loading="lazy" decoding="async" width="1200" height="675"
+            sizes="(min-width: 900px) 33vw, 100vw"
+          />
           <div class="card-body">
             <h3>Car Sale Management System</h3>
             <p>Python OOP + PySide6 GUI with SQLite. Manage inventory, customers, transactions; analytics and Excel export.</p>
@@ -101,8 +121,14 @@
           </div>
         </article>
 
+        <!-- Interval Scheduler -->
         <article class="card" data-tags="cpp, algorithms, cli">
-          <img src="images/Interval-Scheduler.png" alt="Interval Scheduler CLI running test cases (greedy strategy)" loading="lazy" decoding="async" width="1200" height="675" sizes="(min-width: 900px) 33vw, 100vw" />
+          <img
+            src="images/interval-scheduler.png"
+            alt="Interval Scheduler CLI running test cases using a greedy strategy"
+            loading="lazy" decoding="async" width="1200" height="675"
+            sizes="(min-width: 900px) 33vw, 100vw"
+          />
           <div class="card-body">
             <h3>Interval Scheduler</h3>
             <p>C++ greedy interval partitioning with a menu-driven CLI to compute minimum rooms/resources for overlapping intervals.</p>
@@ -115,8 +141,14 @@
           </div>
         </article>
 
+        <!-- City Hospital Management -->
         <article class="card" data-tags="sql, database, crud, gui, python">
-          <img src="images/city-hospital.jpg" alt="City Hospital Management GUI with patient and appointment records" loading="lazy" decoding="async" width="1200" height="675" sizes="(min-width: 900px) 33vw, 100vw" />
+          <img
+            src="images/city-hospital.jpg"
+            alt="City Hospital Management GUI with patient and appointment records"
+            loading="lazy" decoding="async" width="1200" height="675"
+            sizes="(min-width: 900px) 33vw, 100vw"
+          />
           <div class="card-body">
             <h3>City Hospital Management (GUI)</h3>
             <p>Python + PySide6 GUI with SQLite. Manage patients, staff, departments, appointments; dark mode dashboard and stats.</p>
@@ -133,23 +165,35 @@
       <p class="all-projects">See more on <a href="https://github.com/Elgeneral200" target="_blank" rel="noopener">GitHub →</a></p>
     </section>
 
+    <!-- About -->
     <section id="about" class="container section" aria-label="About">
       <h2>About</h2>
       <p>I’m Muhammad Fathi, a Data/ML-focused developer who enjoys building practical, maintainable solutions. Strengths include OOP, algorithms, and data structures across Python, C++, and SQL. I’m open to internships, junior roles, and freelance work—especially where I can deliver measurable value and keep learning.</p>
     </section>
 
+    <!-- Skills -->
     <section id="skills" class="container section" aria-label="Skills">
       <h2>Skills</h2>
       <ul class="chips" aria-label="Tools & technologies">
-        <li>Python</li><li>NumPy</li><li>Pandas</li><li>scikit-learn</li><li>C++</li><li>PostgreSQL</li><li>SQLite</li><li>SQL</li><li>Git</li><li>Linux</li>
+        <li>Python</li><li>NumPy</li><li>Pandas</li><li>scikit-learn</li>
+        <li>C++</li><li>PostgreSQL</li><li>SQLite</li><li>SQL</li><li>Git</li><li>Linux</li>
       </ul>
     </section>
 
+    <!-- Résumé banner (807×349) + fallback JS -->
     <section id="resume" class="container section" aria-label="Résumé">
       <h2>Résumé</h2>
       <div class="resume-card">
         <a class="preview" href="resume.pdf" target="_blank" rel="noopener" aria-label="Open résumé PDF in a new tab">
-          <img src="images/resume-cover.png" srcset="images/resume-cover.png 807w, images/resume-cover@2x.png 1614w" sizes="(min-width: 900px) 800px, 92vw" alt="Résumé header — Muhammad Fathi, email: mudiifathii@gmail.com" width="807" height="349" loading="lazy" decoding="async" onerror="this.onerror=null; this.src='images/resume-cover.png'; this.removeAttribute('srcset');" />
+          <img
+            id="resume-img"
+            src="images/resume-cover.png"
+            srcset="images/resume-cover.png 807w, images/resume-cover@2x.png 1614w"
+            sizes="(min-width: 900px) 800px, 92vw"
+            alt="Résumé header — Muhammad Fathi, email: mudiifathii@gmail.com"
+            width="807" height="349"
+            loading="lazy" decoding="async"
+          />
         </a>
         <div class="resume-actions">
           <a class="btn" href="resume.pdf" target="_blank" rel="noopener">View PDF</a>
@@ -158,6 +202,7 @@
       </div>
     </section>
 
+    <!-- Contact -->
     <section id="contact" class="container section" aria-label="Contact">
       <h2>Let’s work together</h2>
       <p>I reply within 24 hours.</p>
@@ -183,13 +228,48 @@
     </div>
   </footer>
 
+  <!-- Structured data: Person -->
   <script type="application/ld+json">
-  { "@context": "https://schema.org", "@type": "Person", "name": "Muhammad Fathi", "jobTitle": "Data/ML Developer (Student)", "email": "mailto:mudiifathii@gmail.com", "telephone": "+201147422177", "sameAs": ["https://github.com/Elgeneral200","https://www.linkedin.com/in/muhammad-fathi-526745287"], "url": "https://your-actual-domain.com" }
+  { "@context": "https://schema.org", "@type": "Person",
+    "name": "Muhammad Fathi", "jobTitle": "Data/ML Developer (Student)",
+    "email": "mailto:mudiifathii@gmail.com", "telephone": "+201147422177",
+    "sameAs": ["https://github.com/Elgeneral200","https://www.linkedin.com/in/muhammad-fathi-526745287"],
+    "url": "https://elgeneral200.github.io/portfolio/" }
+  </script>
+  <!-- Structured data: Projects -->
+  <script type="application/ld+json">
+  { "@context":"https://schema.org","@type":"SoftwareSourceCode",
+    "name":"Car Sale Management System",
+    "author":{"@type":"Person","name":"Muhammad Fathi"},
+    "programmingLanguage":["Python"],"applicationCategory":"BusinessApplication",
+    "codeRepository":"https://github.com/Elgeneral200/Car-Management-System-",
+    "keywords":"Python, PySide6, GUI, SQLite, OOP",
+    "url":"https://elgeneral200.github.io/portfolio/projects/car-sale.html" }
+  </script>
+  <script type="application/ld+json">
+  { "@context":"https://schema.org","@type":"SoftwareSourceCode",
+    "name":"Interval Scheduler",
+    "author":{"@type":"Person","name":"Muhammad Fathi"},
+    "programmingLanguage":["C++"],"applicationCategory":"EducationalApplication",
+    "codeRepository":"https://github.com/Elgeneral200/interval-scheduler",
+    "keywords":"C++, Greedy, CLI, Algorithms",
+    "url":"https://elgeneral200.github.io/portfolio/projects/interval-scheduler.html" }
+  </script>
+  <script type="application/ld+json">
+  { "@context":"https://schema.org","@type":"SoftwareSourceCode",
+    "name":"City Hospital Management (GUI)",
+    "author":{"@type":"Person","name":"Muhammad Fathi"},
+    "programmingLanguage":["Python"],"applicationCategory":"BusinessApplication",
+    "codeRepository":"https://github.com/Elgeneral200/Depi_Amit_AI_BNS3",
+    "keywords":"Python, PySide6, GUI, SQLite, CRUD, OOP",
+    "url":"https://elgeneral200.github.io/portfolio/projects/city-hospital.html" }
   </script>
 
   <script>
+    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    // Mobile nav toggle
     const toggle = document.querySelector('.menu-toggle');
     const nav = document.getElementById('primary-nav');
     toggle?.addEventListener('click', () => {
@@ -198,61 +278,124 @@
       toggle.setAttribute('aria-expanded', String(!open));
     });
 
+    // Close mobile menu on link click and Escape
     document.querySelectorAll('#primary-nav a[href^="#"]').forEach(a => {
-      a.addEventListener('click', () => { nav?.setAttribute('data-open', 'false'); toggle?.setAttribute('aria-expanded', 'false'); });
+      a.addEventListener('click', () => {
+        nav?.setAttribute('data-open', 'false');
+        toggle?.setAttribute('aria-expanded', 'false');
+      });
     });
     window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') { nav?.setAttribute('data-open', 'false'); toggle?.setAttribute('aria-expanded', 'false'); }
+      if (e.key === 'Escape') {
+        nav?.setAttribute('data-open', 'false');
+        toggle?.setAttribute('aria-expanded', 'false');
+      }
     });
 
+    // Active nav
     const sections = [...document.querySelectorAll('main section[id]')];
     const navLinks = [...document.querySelectorAll('header .nav a[href^="#"]')];
     function setActive(id) {
-      navLinks.forEach(a => a.getAttribute('href') === `#${id}` ? a.setAttribute('aria-current','page') : a.removeAttribute('aria-current'));
+      navLinks.forEach(a => {
+        if (a.getAttribute('href') === `#${id}`) a.setAttribute('aria-current', 'page');
+        else a.removeAttribute('aria-current');
+      });
     }
-    const io = new IntersectionObserver(entries => { entries.forEach(entry => { if (entry.isIntersecting) setActive(entry.target.id); }); }, { rootMargin: '-40% 0px -55% 0px' });
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => { if (entry.isIntersecting) setActive(entry.target.id); });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
     sections.forEach(sec => io.observe(sec));
 
+    // Theme toggle + a11y label
     (function () {
       const root = document.documentElement;
       const stored = localStorage.getItem('theme');
       if (stored) root.setAttribute('data-theme', stored);
       const btn = document.getElementById('theme-toggle');
+      function labelFor(theme){return `Switch to ${theme==='dark'?'light':'dark'} theme`;}
+      function currentTheme(){
+        return root.getAttribute('data-theme') ||
+          (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      }
+      function updateLabel(){ if(btn) btn.setAttribute('aria-label', labelFor(currentTheme())); }
+      updateLabel();
       btn?.addEventListener('click', () => {
-        const cur = root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const cur = currentTheme();
         const next = cur === 'dark' ? 'light' : 'dark';
-        root.setAttribute('data-theme', next); localStorage.setItem('theme', next);
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        updateLabel();
       });
     })();
 
+    // Filters + count
     (function () {
       const filterBtns = document.querySelectorAll('.filters [data-filter]');
       const cards = document.querySelectorAll('#projects .card');
+      const count = document.getElementById('filter-count');
+
+      function updateCount() {
+        const visible = [...cards].filter(c => !c.hidden).length;
+        if (count) count.textContent = `Showing ${visible} project${visible!==1?'s':''}`;
+      }
+
       filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
           filterBtns.forEach(b => { b.classList.remove('is-active'); b.removeAttribute('aria-pressed'); });
           btn.classList.add('is-active'); btn.setAttribute('aria-pressed', 'true');
+
           const f = btn.dataset.filter;
           cards.forEach(card => {
             const tags = (card.dataset.tags || '').toLowerCase();
             card.hidden = f !== 'all' && !tags.includes(f);
           });
+          updateCount();
         });
       });
+
+      updateCount();
     })();
 
+    // GitHub stars (cached per session)
     (async function loadStars() {
       const metas = document.querySelectorAll('.repo-meta[data-repo]');
       if (!metas.length) return;
       const cache = JSON.parse(sessionStorage.getItem('ghstars') || '{}');
+
       for (const node of metas) {
         const repo = node.dataset.repo;
         try {
           const data = cache[repo] || await fetch(`https://api.github.com/repos/${repo}`).then(r => r.json());
-          if (!cache[repo]) { cache[repo] = { stargazers_count: data.stargazers_count || 0 }; sessionStorage.setItem('ghstars', JSON.stringify(cache)); }
+          if (!cache[repo]) {
+            cache[repo] = { stargazers_count: data.stargazers_count || 0 };
+            sessionStorage.setItem('ghstars', JSON.stringify(cache));
+          }
           node.querySelector('[data-stars]').textContent = (cache[repo].stargazers_count ?? 0);
-        } catch { node.querySelector('[data-stars]').textContent = '0'; }
+        } catch {
+          node.querySelector('[data-stars]').textContent = '0';
+        }
       }
+    })();
+
+    // Résumé image fallback if PNG missing (tries JPG/JPEG/uppercase)
+    (function () {
+      const img = document.getElementById('resume-img');
+      if (!img) return;
+      const candidates = [
+        'images/resume-cover.jpg',
+        'images/resume-cover.jpeg',
+        'images/resume-cover.PNG',
+        'images/resume-cover.JPG'
+      ];
+      function tryNext(i = 0) {
+        if (i >= candidates.length) return;
+        const url = candidates[i];
+        const probe = new Image();
+        probe.onload = () => { img.src = url; img.removeAttribute('srcset'); };
+        probe.onerror = () => tryNext(i + 1);
+        probe.src = url;
+      }
+      img.addEventListener('error', () => tryNext(), { once: true });
     })();
   </script>
 </body>
