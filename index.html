@@ -210,7 +210,7 @@
       </p>
     </section>
 
-    <!-- Skills -->
+    <!-- Skills (panel) -->
     <section id="skills" class="container section panel" aria-label="Skills">
       <h2>Skills</h2>
       <ul class="chips" aria-label="Tools & technologies" data-reveal>
@@ -219,7 +219,7 @@
       </ul>
     </section>
 
-    <!-- Résumé -->
+    <!-- Résumé (panel) -->
     <section id="resume" class="container section panel" aria-label="Résumé">
       <h2>Résumé</h2>
       <div class="resume-card" data-reveal>
@@ -239,7 +239,7 @@
       </div>
     </section>
 
-    <!-- Contact -->
+    <!-- Contact (3 + 3 layout) -->
     <section id="contact" class="container section" aria-label="Contact">
       <h2>Let’s work together</h2>
       <p data-reveal>I reply within 24 hours.</p>
@@ -345,7 +345,7 @@
       }
     });
 
-    // Active nav highlight
+    // Active nav
     const sections = [...document.querySelectorAll('main section[id]')];
     const navLinks = [...document.querySelectorAll('header .nav a[href^="#"]')];
     function setActive(id) {
@@ -441,8 +441,8 @@
       const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
       if (prefersReduced || !canHover) return;
 
-      const MAX_TILT = 6;
-      const Z_LIFT = 10;
+      const MAX_TILT = 6; // degrees
+      const Z_LIFT = 10;  // px
 
       document.querySelectorAll('.card[data-tilt]').forEach(card => {
         card.style.transformStyle = 'preserve-3d';
@@ -459,7 +459,9 @@
           card.style.transform = `translateY(-4px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(${Z_LIFT}px)`;
         }
 
-        function handleLeave() { card.style.transform = ''; }
+        function handleLeave() {
+          card.style.transform = '';
+        }
 
         card.addEventListener('mousemove', handleMove);
         card.addEventListener('mouseleave', handleLeave);
@@ -467,7 +469,7 @@
     })();
   </script>
 
-  <!-- Arabic/English toggle + translations + nav order + UI polish -->
+  <!-- Arabic/English toggle + translations + nav order + UI + prettier background -->
   <script defer src="i18n-toggle.js"></script>
 </body>
 </html>
