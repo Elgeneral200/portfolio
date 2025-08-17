@@ -180,7 +180,7 @@
       </ul>
     </section>
 
-    <!-- Résumé banner (807×349) + fallback JS -->
+    <!-- Résumé banner (807×349) -->
     <section id="resume" class="container section" aria-label="Résumé">
       <h2>Résumé</h2>
       <div class="resume-card">
@@ -188,8 +188,6 @@
           <img
             id="resume-img"
             src="images/resume-cover.png"
-            srcset="images/resume-cover.png 807w, images/resume-cover@2x.png 1614w"
-            sizes="(min-width: 900px) 800px, 92vw"
             alt="Résumé header — Muhammad Fathi, email: mudiifathii@gmail.com"
             width="807" height="349"
             loading="lazy" decoding="async"
@@ -375,27 +373,6 @@
           node.querySelector('[data-stars]').textContent = '0';
         }
       }
-    })();
-
-    // Résumé image fallback if PNG missing (tries JPG/JPEG/uppercase)
-    (function () {
-      const img = document.getElementById('resume-img');
-      if (!img) return;
-      const candidates = [
-        'images/resume-cover.jpg',
-        'images/resume-cover.jpeg',
-        'images/resume-cover.PNG',
-        'images/resume-cover.JPG'
-      ];
-      function tryNext(i = 0) {
-        if (i >= candidates.length) return;
-        const url = candidates[i];
-        const probe = new Image();
-        probe.onload = () => { img.src = url; img.removeAttribute('srcset'); };
-        probe.onerror = () => tryNext(i + 1);
-        probe.src = url;
-      }
-      img.addEventListener('error', () => tryNext(), { once: true });
     })();
   </script>
 </body>
