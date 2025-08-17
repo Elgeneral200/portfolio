@@ -34,6 +34,9 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 </head>
 <body>
+  <!-- Scroll progress bar -->
+  <div class="progress" id="progress"></div>
+
   <a class="skip" href="#content">Skip to content</a>
 
   <!-- Header / Nav -->
@@ -56,7 +59,7 @@
   <main id="content">
     <!-- Hero (with photo) -->
     <section class="hero container" aria-label="Intro">
-      <div class="hero-text">
+      <div class="hero-text" data-reveal style="--reveal-delay:.05s">
         <h1>I build data & ML solutions with Python, C++, and SQL.</h1>
         <p>
           I’m a 3rd-year Computer Science student at Ahram Canadian University (AI specialization),
@@ -72,7 +75,7 @@
         </div>
       </div>
 
-      <figure class="hero-media">
+      <figure class="hero-media" data-reveal style="--reveal-delay:.12s">
         <div class="avatar">
           <img
             src="images/muhammad-fathi.jpg"
@@ -89,7 +92,7 @@
       <h2>Featured projects</h2>
 
       <!-- Filters -->
-      <nav class="filters" aria-label="Filter projects">
+      <nav class="filters" aria-label="Filter projects" data-reveal>
         <ul class="chips">
           <li><button class="chip is-active" data-filter="all" aria-pressed="true">All</button></li>
           <li><button class="chip" data-filter="python">Python</button></li>
@@ -98,11 +101,11 @@
           <li><button class="chip" data-filter="gui">GUI</button></li>
         </ul>
       </nav>
-      <p id="filter-count" aria-live="polite" class="repo-meta">Showing 3 projects</p>
+      <p id="filter-count" aria-live="polite" class="repo-meta" data-reveal style="--reveal-delay:.05s">Showing 3 projects</p>
 
       <div class="grid">
         <!-- Car Sale Management System -->
-        <article class="card" data-tags="python, gui, sql, sqlite">
+        <article class="card" data-tilt data-tags="python, gui, sql, sqlite" data-reveal>
           <img
             src="images/car-sale.png"
             alt="Car Sale Management System GUI showing inventory and transactions"
@@ -122,7 +125,7 @@
         </article>
 
         <!-- Interval Scheduler -->
-        <article class="card" data-tags="cpp, algorithms, cli">
+        <article class="card" data-tilt data-tags="cpp, algorithms, cli" data-reveal style="--reveal-delay:.06s">
           <img
             src="images/interval-scheduler.png"
             alt="Interval Scheduler CLI running test cases using a greedy strategy"
@@ -142,7 +145,7 @@
         </article>
 
         <!-- City Hospital Management -->
-        <article class="card" data-tags="sql, database, crud, gui, python">
+        <article class="card" data-tilt data-tags="sql, database, crud, gui, python" data-reveal style="--reveal-delay:.12s">
           <img
             src="images/city-hospital.jpg"
             alt="City Hospital Management GUI with patient and appointment records"
@@ -162,28 +165,30 @@
         </article>
       </div>
 
-      <p class="all-projects">See more on <a href="https://github.com/Elgeneral200" target="_blank" rel="noopener">GitHub →</a></p>
+      <p class="all-projects" data-reveal style="--reveal-delay:.05s">See more on <a href="https://github.com/Elgeneral200" target="_blank" rel="noopener">GitHub →</a></p>
     </section>
 
     <!-- About -->
     <section id="about" class="container section" aria-label="About">
       <h2>About</h2>
-      <p>I’m Muhammad Fathi, a Data/ML-focused developer who enjoys building practical, maintainable solutions. Strengths include OOP, algorithms, and data structures across Python, C++, and SQL. I’m open to internships, junior roles, and freelance work—especially where I can deliver measurable value and keep learning.</p>
+      <p data-reveal>
+        I’m Muhammad Fathi, a Data/ML-focused developer who enjoys building practical, maintainable solutions. Strengths include OOP, algorithms, and data structures across Python, C++, and SQL. I’m open to internships, junior roles, and freelance work—especially where I can deliver measurable value and keep learning.
+      </p>
     </section>
 
     <!-- Skills -->
     <section id="skills" class="container section" aria-label="Skills">
       <h2>Skills</h2>
-      <ul class="chips" aria-label="Tools & technologies">
+      <ul class="chips" aria-label="Tools & technologies" data-reveal>
         <li>Python</li><li>NumPy</li><li>Pandas</li><li>scikit-learn</li>
         <li>C++</li><li>PostgreSQL</li><li>SQLite</li><li>SQL</li><li>Git</li><li>Linux</li>
       </ul>
     </section>
 
-    <!-- Résumé banner (807×349) -->
+    <!-- Résumé banner -->
     <section id="resume" class="container section" aria-label="Résumé">
       <h2>Résumé</h2>
-      <div class="resume-card">
+      <div class="resume-card" data-reveal>
         <a class="preview" href="resume.pdf" target="_blank" rel="noopener" aria-label="Open résumé PDF in a new tab">
           <img
             id="resume-img"
@@ -203,8 +208,8 @@
     <!-- Contact -->
     <section id="contact" class="container section" aria-label="Contact">
       <h2>Let’s work together</h2>
-      <p>I reply within 24 hours.</p>
-      <div class="contact-grid">
+      <p data-reveal>I reply within 24 hours.</p>
+      <div class="contact-grid" data-reveal style="--reveal-delay:.06s">
         <a class="btn" href="mailto:mudiifathii@gmail.com">mudiifathii@gmail.com</a>
         <a class="btn outline" href="https://github.com/Elgeneral200" target="_blank" rel="noopener" aria-label="GitHub">GitHub: Elgeneral200</a>
         <a class="btn outline" href="https://www.linkedin.com/in/muhammad-fathi-526745287" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn: Muhammad Fathi</a>
@@ -237,8 +242,7 @@
   <!-- Structured data: Projects -->
   <script type="application/ld+json">
   { "@context":"https://schema.org","@type":"SoftwareSourceCode",
-    "name":"Car Sale Management System",
-    "author":{"@type":"Person","name":"Muhammad Fathi"},
+    "name":"Car Sale Management System","author":{"@type":"Person","name":"Muhammad Fathi"},
     "programmingLanguage":["Python"],"applicationCategory":"BusinessApplication",
     "codeRepository":"https://github.com/Elgeneral200/Car-Management-System-",
     "keywords":"Python, PySide6, GUI, SQLite, OOP",
@@ -246,8 +250,7 @@
   </script>
   <script type="application/ld+json">
   { "@context":"https://schema.org","@type":"SoftwareSourceCode",
-    "name":"Interval Scheduler",
-    "author":{"@type":"Person","name":"Muhammad Fathi"},
+    "name":"Interval Scheduler","author":{"@type":"Person","name":"Muhammad Fathi"},
     "programmingLanguage":["C++"],"applicationCategory":"EducationalApplication",
     "codeRepository":"https://github.com/Elgeneral200/interval-scheduler",
     "keywords":"C++, Greedy, CLI, Algorithms",
@@ -255,8 +258,7 @@
   </script>
   <script type="application/ld+json">
   { "@context":"https://schema.org","@type":"SoftwareSourceCode",
-    "name":"City Hospital Management (GUI)",
-    "author":{"@type":"Person","name":"Muhammad Fathi"},
+    "name":"City Hospital Management (GUI)","author":{"@type":"Person","name":"Muhammad Fathi"},
     "programmingLanguage":["Python"],"applicationCategory":"BusinessApplication",
     "codeRepository":"https://github.com/Elgeneral200/Depi_Amit_AI_BNS3",
     "keywords":"Python, PySide6, GUI, SQLite, CRUD, OOP",
@@ -304,25 +306,29 @@
     }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
     sections.forEach(sec => io.observe(sec));
 
-    // Theme toggle + a11y label
+    // Theme toggle (robust): sets data-theme, updates meta theme-color, icon, and label
     (function () {
       const root = document.documentElement;
-      const stored = localStorage.getItem('theme');
-      if (stored) root.setAttribute('data-theme', stored);
+      const metaTheme = document.querySelector('meta[name="theme-color"]');
       const btn = document.getElementById('theme-toggle');
-      function labelFor(theme){return `Switch to ${theme==='dark'?'light':'dark'} theme`;}
-      function currentTheme(){
-        return root.getAttribute('data-theme') ||
-          (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+      function applyTheme(t) {
+        root.setAttribute('data-theme', t);
+        localStorage.setItem('theme', t);
+        if (metaTheme) metaTheme.setAttribute('content', t === 'dark' ? '#0b1220' : '#ffffff');
+        if (btn) {
+          btn.setAttribute('aria-label', `Switch to ${t === 'dark' ? 'light' : 'dark'} theme`);
+          btn.textContent = t === 'dark' ? '🌞' : '🌓';
+        }
       }
-      function updateLabel(){ if(btn) btn.setAttribute('aria-label', labelFor(currentTheme())); }
-      updateLabel();
+
+      const stored = localStorage.getItem('theme');
+      const start = stored || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      applyTheme(start);
+
       btn?.addEventListener('click', () => {
-        const cur = currentTheme();
-        const next = cur === 'dark' ? 'light' : 'dark';
-        root.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
-        updateLabel();
+        const cur = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        applyTheme(cur === 'dark' ? 'light' : 'dark');
       });
     })();
 
@@ -373,6 +379,64 @@
           node.querySelector('[data-stars]').textContent = '0';
         }
       }
+    })();
+
+    // Reveal on scroll (respects reduced-motion)
+    (function () {
+      const els = document.querySelectorAll('[data-reveal]');
+      if (!els.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      els.forEach(el => el.classList.add('reveal'));
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+      }, { threshold: 0.15 });
+      els.forEach(el => obs.observe(el));
+    })();
+
+    // Scroll progress bar
+    (function(){
+      const bar = document.getElementById('progress');
+      if(!bar) return;
+      const onScroll = () => {
+        const s = window.scrollY;
+        const h = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.transform = `scaleX(${h ? (s / h) : 0})`;
+      };
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+    })();
+
+    // Parallax tilt on cards (desktop only, respects reduced motion)
+    (function(){
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      if (prefersReduced || !canHover) return;
+
+      const MAX_TILT = 6; // degrees
+      const Z_LIFT = 10;  // px
+
+      document.querySelectorAll('.card[data-tilt]').forEach(card => {
+        card.style.transformStyle = 'preserve-3d';
+        card.style.willChange = 'transform';
+
+        function handleMove(e) {
+          const rect = card.getBoundingClientRect();
+          const cx = rect.left + rect.width / 2;
+          const cy = rect.top + rect.height / 2;
+          const px = (e.clientX - cx) / (rect.width / 2);
+          const py = (e.clientY - cy) / (rect.height / 2);
+          const rotY = (px * MAX_TILT);
+          const rotX = (-py * MAX_TILT);
+          card.style.transform = `translateY(-4px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(${Z_LIFT}px)`;
+        }
+
+        function handleLeave() {
+          card.style.transform = '';
+        }
+
+        card.addEventListener('mousemove', handleMove);
+        card.addEventListener('mouseleave', handleLeave);
+      });
     })();
   </script>
 </body>
