@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Interval Scheduler — Case Study | Muhammad Fathi</title>
+  <title>Interval Scheduler — Case Study | Muhammed Fathi</title>
+  <meta name="theme-color" content="#4f46e5" />
+  <meta name="description" content="C++ greedy interval partitioning with a menu-driven CLI to compute minimum rooms/resources for overlapping intervals." />
   <link rel="canonical" href="https://elgeneral200.github.io/portfolio/projects/interval-scheduler.html" />
   <meta property="og:title" content="Interval Scheduler — Case Study" />
   <meta property="og:description" content="C++ greedy interval partitioning with a menu-driven CLI to compute minimum rooms/resources for overlapping intervals." />
@@ -10,16 +12,22 @@
   <meta property="og:url" content="https://elgeneral200.github.io/portfolio/projects/interval-scheduler.html" />
   <meta property="og:image" content="https://elgeneral200.github.io/portfolio/images/interval-scheduler.png" />
   <link rel="stylesheet" href="../style.css">
-  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/mf-logo-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../images/mf-logo-16.png">
+  <link rel="apple-touch-icon" href="../images/mf-logo.png" />
 </head>
 <body>
   <header class="site-header"><nav class="container" aria-label="Primary">
-    <a class="logo" href="../#projects">← Back to portfolio</a>
-    <ul class="nav">
+    <a class="logo" href="../" data-i18n-ignore aria-label="Back to home">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+      Back to Portfolio
+    </a>
+    <ul class="nav" id="primary-nav" data-open="false">
       <li><a href="../#projects">Projects</a></li>
       <li><a href="../#about">About</a></li>
       <li><a href="../resume.pdf" target="_blank" rel="noopener">Résumé</a></li>
       <li><a href="../#contact" class="btn small">Contact</a></li>
+      <li><button id="theme-toggle" class="btn outline small" type="button" aria-label="Toggle theme">🌓</button></li>
     </ul>
   </nav></header>
 
@@ -59,9 +67,12 @@
     <p>C++ (MinGW), Windows Console API</p>
 
     <h2>Links</h2>
-    <p>
-      <a class="btn" href="https://github.com/Elgeneral200/interval-scheduler" target="_blank" rel="noopener">Repository</a>
-    </p>
+    <p><a class="btn" href="https://github.com/Elgeneral200/interval-scheduler" target="_blank" rel="noopener">Repository</a></p>
   </main>
+
+  <script defer src="../scripts/theme.js"></script>
+  <script defer src="../scripts/cursor.js"></script>
+  <script defer src="../scripts/transitions.js"></script>
+  <script defer src="../scripts/i18n-toggle.js"></script>
 </body>
 </html>
