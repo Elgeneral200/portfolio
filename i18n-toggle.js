@@ -219,9 +219,6 @@
       .site-header .nav a:hover, .site-header .nav button.btn:hover {
         background: color-mix(in srgb, var(--card) 86%, transparent);
       }
-      .site-header .nav a:focus-visible, .site-header .nav button.btn:focus-visible, .btn:focus-visible {
-        outline: 0; box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 60%, transparent); border-radius: 10px;
-      }
 
       /* Calm hero shimmer */
       .hero-text h1 {
@@ -620,8 +617,11 @@
     const btn = ensureLangToggle();
     pinContactFooter();
 
-    const saved = localStorage.getItem('siteLang') || 'en';
-    setLanguage(saved === 'ar' ? 'ar' : 'en');
+    // ADDED: Detect browser language on first visit, with localStorage override
+    const saved = localStorage.getItem('siteLang');
+    const browserLang = navigator.language.startsWith('ar') ? 'ar' : 'en';
+    const startLang = saved || browserLang;
+    setLanguage(startLang);
 
     btn?.addEventListener('click', () => {
       const current = isAr() ? 'ar' : 'en';

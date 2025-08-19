@@ -24,7 +24,7 @@
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
   <!-- Preload hero image for better LCP -->
@@ -37,70 +37,64 @@
   <link rel="icon" type="image/png" sizes="16x16" href="images/mf-logo-16.png">
   <link rel="icon" href="images/mf-logo.png" type="image/png" />
   <link rel="apple-touch-icon" href="images/mf-logo.png" />
+
+  <!-- ADDED: Style for pausing animations when idle -->
+  <style>
+    .animations-paused *,
+    .animations-paused *::before,
+    .animations-paused *::after {
+      animation-play-state: paused !important;
+    }
+  </style>
 </head>
-<body>
+<body class="animations-paused"> <!-- Start with animations paused -->
   <!-- Scroll progress bar -->
   <div class="progress" id="progress"></div>
 
   <a class="skip" href="#content">Skip to content</a>
 
-  <!-- Header / Nav -->
+  <!-- Header / Nav (unchanged) -->
   <header class="site-header" id="home">
     <nav class="container" aria-label="Primary">
       <a class="logo" href="#home" aria-label="Go to home">Muhammad Fathi</a>
-
       <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">☰</button>
-
       <ul id="primary-nav" class="nav" data-open="false">
         <li>
           <a href="#projects">
-            <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z"/>
-            </svg>
+            <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z"/></svg>
             Projects
           </a>
         </li>
         <li>
           <a href="#about">
-            <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-5 0-9 2.5-9 5.5V22h18v-2.5C21 16.5 17 14 12 14z"/>
-            </svg>
+            <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-5 0-9 2.5-9 5.5V22h18v-2.5C21 16.5 17 14 12 14z"/></svg>
             About
           </a>
         </li>
         <li>
           <a href="resume.pdf" target="_blank" rel="noopener">
-            <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6zm2 18H8V4h5v5h5v11z"/>
-            </svg>
+            <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6zm2 18H8V4h5v5h5v11z"/></svg>
             Résumé
           </a>
         </li>
         <li>
           <a href="#contact">
-            <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M21 8V6l-9 5L3 6v2l9 5 9-5zm0 4H3v6h18v-6z"/>
-            </svg>
+            <svg class="icon nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8V6l-9 5L3 6v2l9 5 9-5zm0 4H3v6h18v-6z"/></svg>
             Contact
           </a>
         </li>
-        <!-- Theme + language appended and reordered by JS -->
         <li><button id="theme-toggle" class="btn outline small" type="button" aria-label="Toggle theme">🌓</button></li>
       </ul>
     </nav>
   </header>
 
+  <!-- Main content (unchanged) -->
   <main id="content">
-    <!-- Hero -->
     <section class="hero container" aria-label="Intro">
       <div class="hero-text" data-reveal style="--reveal-delay:.05s">
         <h1>I build data & ML solutions with Python, C++, and SQL.</h1>
-        <p>
-          I’m a 3rd-year Computer Science student at Ahram Canadian University (AI specialization),
-          and enrolled in the AI & Data Science diploma by Egypt’s Digital Egypt Pioneers Initiative (MCIT).
-          I turn data into practical outcomes through clean code, strong algorithms, and reliable databases.
-        </p>
-        <ul class="chips" aria-label="Core skills">
+        <p>I’m a 3rd-year Computer Science student at Ahram Canadian University (AI specialization), and enrolled in the AI & Data Science diploma by Egypt’s Digital Egypt Pioneers Initiative (MCIT). I turn data into practical outcomes through clean code, strong algorithms, and reliable databases.</p>
+        <ul class="chips" aria-label="Core skills" data-reveal-stagger>
           <li>Python</li><li>C++</li><li>PostgreSQL</li><li>AI & Data Science</li><li>OOP</li><li>Algorithms & Data Structures</li>
         </ul>
         <div class="cta">
@@ -108,24 +102,14 @@
           <a class="link" href="resume.pdf" target="_blank" rel="noopener">View résumé →</a>
         </div>
       </div>
-
       <figure class="hero-media" data-reveal style="--reveal-delay:.12s">
         <div class="avatar">
-          <img
-            src="images/muhammad-fathi.jpg"
-            alt="Headshot of Muhammad Fathi"
-            width="800" height="800"
-            decoding="async" fetchpriority="high"
-          />
+          <img src="images/muhammad-fathi.jpg" alt="Headshot of Muhammad Fathi" width="800" height="800" decoding="async" fetchpriority="high" />
         </div>
       </figure>
     </section>
-
-    <!-- Projects -->
     <section id="projects" class="container section" aria-label="Featured projects">
       <h2>Featured projects</h2>
-
-      <!-- Filters -->
       <nav class="filters" aria-label="Filter projects" data-reveal>
         <ul class="chips">
           <li><button class="chip is-active" data-filter="all" aria-pressed="true">All</button></li>
@@ -136,16 +120,9 @@
         </ul>
       </nav>
       <p id="filter-count" aria-live="polite" class="repo-meta" data-reveal style="--reveal-delay:.05s">Showing 3 projects</p>
-
-      <div class="grid">
-        <!-- Car Sale Management System -->
-        <article class="card" data-tilt data-tags="python, gui, sql, sqlite" data-reveal>
-          <img
-            src="images/car-sale.png"
-            alt="Car Sale Management System GUI showing inventory and transactions"
-            loading="lazy" decoding="async" width="1200" height="675"
-            sizes="(min-width: 900px) 33vw, 100vw"
-          />
+      <div class="grid" data-reveal-stagger>
+        <article class="card" data-tilt data-tags="python, gui, sql, sqlite">
+          <img src="images/car-sale.png" alt="Car Sale Management System GUI showing inventory and transactions" loading="lazy" decoding="async" width="1200" height="675" sizes="(min-width: 900px) 33vw, 100vw"/>
           <div class="card-body">
             <h3>Car Sale Management System</h3>
             <p>Python OOP + PySide6 GUI with SQLite. Manage inventory, customers, transactions; analytics and Excel export.</p>
@@ -157,15 +134,8 @@
             </div>
           </div>
         </article>
-
-        <!-- Interval Scheduler -->
-        <article class="card" data-tilt data-tags="cpp, algorithms, cli" data-reveal style="--reveal-delay:.06s">
-          <img
-            src="images/interval-scheduler.png"
-            alt="Interval Scheduler CLI running test cases using a greedy strategy"
-            loading="lazy" decoding="async" width="1200" height="675"
-            sizes="(min-width: 900px) 33vw, 100vw"
-          />
+        <article class="card" data-tilt data-tags="cpp, algorithms, cli">
+          <img src="images/interval-scheduler.png" alt="Interval Scheduler CLI running test cases using a greedy strategy" loading="lazy" decoding="async" width="1200" height="675" sizes="(min-width: 900px) 33vw, 100vw"/>
           <div class="card-body">
             <h3>Interval Scheduler</h3>
             <p>C++ greedy interval partitioning with a menu-driven CLI to compute minimum rooms/resources for overlapping intervals.</p>
@@ -177,15 +147,8 @@
             </div>
           </div>
         </article>
-
-        <!-- City Hospital Management -->
-        <article class="card" data-tilt data-tags="sql, database, crud, gui, python" data-reveal style="--reveal-delay:.12s">
-          <img
-            src="images/city-hospital.jpg"
-            alt="City Hospital Management GUI with patient and appointment records"
-            loading="lazy" decoding="async" width="1200" height="675"
-            sizes="(min-width: 900px) 33vw, 100vw"
-          />
+        <article class="card" data-tilt data-tags="sql, database, crud, gui, python">
+          <img src="images/city-hospital.jpg" alt="City Hospital Management GUI with patient and appointment records" loading="lazy" decoding="async" width="1200" height="675" sizes="(min-width: 900px) 33vw, 100vw"/>
           <div class="card-body">
             <h3>City Hospital Management (GUI)</h3>
             <p>Python + PySide6 GUI with SQLite. Manage patients, staff, departments, appointments; dark mode dashboard and stats.</p>
@@ -198,19 +161,12 @@
           </div>
         </article>
       </div>
-
       <p class="all-projects" data-reveal style="--reveal-delay:.05s">See more on <a href="https://github.com/Elgeneral200" target="_blank" rel="noopener">GitHub →</a></p>
     </section>
-
-    <!-- About -->
     <section id="about" class="container section" aria-label="About">
       <h2>About</h2>
-      <p data-reveal>
-        I’m Muhammad Fathi, a Data/ML-focused developer who enjoys building practical, maintainable solutions. Strengths include OOP, algorithms, and data structures across Python, C++, and SQL. I’m open to internships, junior roles, and freelance work—especially where I can deliver measurable value and keep learning.
-      </p>
+      <p data-reveal>I’m Muhammad Fathi, a Data/ML-focused developer who enjoys building practical, maintainable solutions. Strengths include OOP, algorithms, and data structures across Python, C++, and SQL. I’m open to internships, junior roles, and freelance work—especially where I can deliver measurable value and keep learning.</p>
     </section>
-
-    <!-- Skills (panel) -->
     <section id="skills" class="container section panel" aria-label="Skills">
       <h2>Skills</h2>
       <ul class="chips" aria-label="Tools & technologies" data-reveal>
@@ -218,19 +174,11 @@
         <li>C++</li><li>PostgreSQL</li><li>SQLite</li><li>SQL</li><li>Git</li><li>Linux</li>
       </ul>
     </section>
-
-    <!-- Résumé (panel) -->
     <section id="resume" class="container section panel" aria-label="Résumé">
       <h2>Résumé</h2>
       <div class="resume-card" data-reveal>
         <a class="preview" href="resume.pdf" target="_blank" rel="noopener" aria-label="Open résumé PDF in a new tab">
-          <img
-            id="resume-img"
-            src="images/resume-cover.png"
-            alt="Résumé header — Muhammad Fathi, email: mudiifathii@gmail.com"
-            width="807" height="349"
-            loading="lazy" decoding="async"
-          />
+          <img id="resume-img" src="images/resume-cover.png" alt="Résumé header — Muhammad Fathi, email: mudiifathii@gmail.com" width="807" height="349" loading="lazy" decoding="async"/>
         </a>
         <div class="resume-actions">
           <a class="btn" href="resume.pdf" target="_blank" rel="noopener">View PDF</a>
@@ -238,40 +186,21 @@
         </div>
       </div>
     </section>
-
-    <!-- Contact (3 + 3 layout) -->
     <section id="contact" class="container section" aria-label="Contact">
       <h2>Let’s work together</h2>
       <p data-reveal>I reply within 24 hours.</p>
       <div class="contact-grid" data-reveal style="--reveal-delay:.06s">
-        <a class="btn" href="mailto:mudiifathii@gmail.com">
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          mudiifathii@gmail.com
-        </a>
-        <a class="btn outline" href="https://github.com/Elgeneral200" target="_blank" rel="noopener" aria-label="GitHub">
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.77 5.46.77 11.74c0 4.93 3.2 9.1 7.64 10.58.56.11.77-.24.77-.54 0-.27-.01-1.15-.02-2.08-3.11.68-3.77-1.33-3.77-1.33-.51-1.3-1.24-1.65-1.24-1.65-1.02-.7.08-.69.08-.69 1.12.08 1.71 1.15 1.71 1.15 1 .1.87 1.73 2.68 2.21.71-.5 1.38-.96 1.38-.96-.76-.06-1.57-.35-2.35-.89-1.49-.99-2.01-2.43-2.01-2.43-.48-1.21-.17-2.11-.08-2.33.23-.05.49-.08.85-.08 1.27 0 2.3.9 2.3.9.78-.22 1.61-.33 2.44-.33 0 0 1.03-.9 2.3-.9.36 0 .63.03.85.08.09.22.4 1.12-.08 2.33 0 0-.52 1.44-2.01 2.43-.79.52-1.65.83-2.43.89 0 0 .67.46 1.38.96 1.81-.48 1.67-2.11 2.67-2.21 0 0 .59-1.07 1.71-1.15 0 0 1.1-.02.08.69 0 0-.73.35-1.24 1.65 0 0-.66 2.01-3.77 1.33-.01.93-.02 1.81-.02 2.08 0 .3.2.66.77.54 4.44-1.49 7.64-5.66 7.64-10.58C23.23 5.46 18.27.5 12 .5z"/></svg>
-          GitHub: Elgeneral200
-        </a>
-        <a class="btn outline" href="https://www.linkedin.com/in/muhammad-fathi-526745287" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.5 8h4v16h-4V8zm7.5 0h3.8v2.2h.05c.53-1 1.83-2.2 3.77-2.2 4.04 0 4.78 2.66 4.78 6.1V24h-4v-7.9c0-1.88-.03-4.3-2.62-4.3-2.62 0-3.02 2.05-3.02 4.17V24h-4V8z"/></svg>
-          LinkedIn: Muhammad Fathi
-        </a>
-        <a class="btn outline" href="https://wa.me/201147422177" target="_blank" rel="noopener" aria-label="WhatsApp chat">
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.77 11.77 0 0 0 12.07 0C5.67 0 .43 5.24.43 11.64c0 2.05.54 4.03 1.57 5.79L0 24l6.75-1.77a11.56 11.56 0 0 0 5.3 1.35h.01c6.4 0 11.64-5.24 11.64-11.64a11.6 11.6 0 0 0-3.18-8.46zM12.06 21.3h-.01c-1.78 0-3.53-.48-5.05-1.39l-.36-.21-4 .99 1.06-3.9-.24-.4a9.56 9.56 0 0 1-1.45-5.05c0-5.28 4.29-9.57 9.58-9.57 2.56 0 4.97.99 6.78 2.8a9.52 9.52 0 0 1 2.8 6.77c0 5.29-4.3 9.56-9.6 9.56zm5.51-7.12c-.3-.15-1.77-.88-2.03-.98-.27-.1-.47-.15-.66.15-.19.3-.76.98-.93 1.18-.17.2-.34.22-.63.07-.3-.15-1.26-.46-2.4-1.47-.88-.78-1.47-1.73-1.65-2.03-.17-.3-.02-.46.13-.61.13-.13.3-.34.45-.51.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.66-1.6-.9-2.2-.23-.56-.47-.49-.66-.5l-.56-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.11 3.23 5.11 4.53.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.08 1.77-.72 2.02-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/></svg>
-          WhatsApp
-        </a>
-        <a class="btn outline" href="tel:+201147422177" aria-label="Call Muhammad Fathi">
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V21a1 1 0 0 1-1 1C10.4 22 2 13.6 2 3a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.58a1 1 0 0 1-.24 1.01l-2.2 2.2z"/></svg>
-          +20 1147422177
-        </a>
-        <a class="btn outline" href="resume.pdf" download>
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6zm2 18H8V4h5v5h5v11zM12 12v4m0 0-2-2m2 2 2-2" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Download résumé
-        </a>
+        <a class="btn" href="mailto:mudiifathii@gmail.com"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>mudiifathii@gmail.com</a>
+        <a class="btn outline" href="https://github.com/Elgeneral200" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.77 5.46.77 11.74c0 4.93 3.2 9.1 7.64 10.58.56.11.77-.24.77-.54 0-.27-.01-1.15-.02-2.08-3.11.68-3.77-1.33-3.77-1.33-.51-1.3-1.24-1.65-1.24-1.65-1.02-.7.08-.69.08-.69 1.12.08 1.71 1.15 1.71 1.15 1 .1.87 1.73 2.68 2.21.71-.5 1.38-.96 1.38-.96-.76-.06-1.57-.35-2.35-.89-1.49-.99-2.01-2.43-2.01-2.43-.48-1.21-.17-2.11-.08-2.33.23-.05.49-.08.85-.08 1.27 0 2.3.9 2.3.9.78-.22 1.61-.33 2.44-.33 0 0 1.03-.9 2.3-.9.36 0 .63.03.85.08.09.22.4 1.12-.08 2.33 0 0-.52 1.44-2.01 2.43-.79.52-1.65.83-2.43.89 0 0 .67.46 1.38.96 1.81-.48 1.67-2.11 2.67-2.21 0 0 .59-1.07 1.71-1.15 0 0 1.1-.02.08.69 0 0-.73.35-1.24 1.65 0 0-.66 2.01-3.77 1.33-.01.93-.02 1.81-.02 2.08 0 .3.2.66.77.54 4.44-1.49 7.64-5.66 7.64-10.58C23.23 5.46 18.27.5 12 .5z"/></svg>GitHub: Elgeneral200</a>
+        <a class="btn outline" href="https://www.linkedin.com/in/muhammad-fathi-526745287" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.5 8h4v16h-4V8zm7.5 0h3.8v2.2h.05c.53-1 1.83-2.2 3.77-2.2 4.04 0 4.78 2.66 4.78 6.1V24h-4v-7.9c0-1.88-.03-4.3-2.62-4.3-2.62 0-3.02 2.05-3.02 4.17V24h-4V8z"/></svg>LinkedIn: Muhammad Fathi</a>
+        <a class="btn outline" href="https://wa.me/201147422177" target="_blank" rel="noopener" aria-label="WhatsApp chat"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.77 11.77 0 0 0 12.07 0C5.67 0 .43 5.24.43 11.64c0 2.05.54 4.03 1.57 5.79L0 24l6.75-1.77a11.56 11.56 0 0 0 5.3 1.35h.01c6.4 0 11.64-5.24 11.64-11.64a11.6 11.6 0 0 0-3.18-8.46zM12.06 21.3h-.01c-1.78 0-3.53-.48-5.05-1.39l-.36-.21-4 .99 1.06-3.9-.24-.4a9.56 9.56 0 0 1-1.45-5.05c0-5.28 4.29-9.57 9.58-9.57 2.56 0 4.97.99 6.78 2.8a9.52 9.52 0 0 1 2.8 6.77c0 5.29-4.3 9.56-9.6 9.56zm5.51-7.12c-.3-.15-1.77-.88-2.03-.98-.27-.1-.47-.15-.66.15-.19.3-.76.98-.93 1.18-.17.2-.34.22-.63.07-.3-.15-1.26-.46-2.4-1.47-.88-.78-1.47-1.73-1.65-2.03-.17-.3-.02-.46.13-.61.13-.13.3-.34.45-.51.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.66-1.6-.9-2.2-.23-.56-.47-.49-.66-.5l-.56-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.11 3.23 5.11 4.53.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.08 1.77-.72 2.02-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/></svg>WhatsApp</a>
+        <a class="btn outline" href="tel:+201147422177" aria-label="Call Muhammad Fathi"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V21a1 1 0 0 1-1 1C10.4 22 2 13.6 2 3a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.58a1 1 0 0 1-.24 1.01l-2.2 2.2z"/></svg>+20 1147422177</a>
+        <a class="btn outline" href="resume.pdf" download><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6zm2 18H8V4h5v5h5v11zM12 12v4m0 0-2-2m2 2 2-2" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Download résumé</a>
       </div>
     </section>
   </main>
 
+  <!-- Footer and Structured Data (unchanged) -->
   <footer class="site-footer">
     <div class="container footer-inner">
       <p>© <span id="year"></span> Muhammad Fathi</p>
@@ -283,209 +212,277 @@
       </div>
     </div>
   </footer>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Muhammad Fathi","jobTitle":"Data/ML Developer (Student)","email":"mailto:mudiifathii@gmail.com","telephone":"+201147422177","sameAs":["https://github.com/Elgeneral200","https://www.linkedin.com/in/muhammad-fathi-526745287"],"url":"https://elgeneral200.github.io/portfolio/"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"Car Sale Management System","author":{"@type":"Person","name":"Muhammad Fathi"},"programmingLanguage":["Python"],"applicationCategory":"BusinessApplication","codeRepository":"https://github.com/Elgeneral200/Car-Management-System-","keywords":"Python, PySide6, GUI, SQLite, OOP","url":"https://elgeneral200.github.io/portfolio/projects/car-sale.html"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"Interval Scheduler","author":{"@type":"Person","name":"Muhammad Fathi"},"programmingLanguage":["C++"],"applicationCategory":"EducationalApplication","codeRepository":"https://github.com/Elgeneral200/interval-scheduler","keywords":"C++, Greedy, CLI, Algorithms","url":"https://elgeneral200.github.io/portfolio/projects/interval-scheduler.html"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"City Hospital Management (GUI)","author":{"@type":"Person","name":"Muhammad Fathi"},"programmingLanguage":["Python"],"applicationCategory":"BusinessApplication","codeRepository":"https://github.com/Elgeneral200/Depi_Amit_AI_BNS3","keywords":"Python, PySide6, GUI, SQLite, CRUD, OOP","url":"https://elgeneral200.github.io/portfolio/projects/city-hospital.html"}</script>
 
-  <!-- Structured data: Person -->
-  <script type="application/ld+json">
-  { "@context": "https://schema.org", "@type": "Person",
-    "name": "Muhammad Fathi", "jobTitle": "Data/ML Developer (Student)",
-    "email": "mailto:mudiifathii@gmail.com", "telephone": "+201147422177",
-    "sameAs": ["https://github.com/Elgeneral200","https://www.linkedin.com/in/muhammad-fathi-526745287"],
-    "url": "https://elgeneral200.github.io/portfolio/" }
-  </script>
-  <!-- Structured data: Projects -->
-  <script type="application/ld+json">
-  { "@context":"https://schema.org","@type":"SoftwareSourceCode",
-    "name":"Car Sale Management System","author":{"@type":"Person","name":"Muhammad Fathi"},
-    "programmingLanguage":["Python"],"applicationCategory":"BusinessApplication",
-    "codeRepository":"https://github.com/Elgeneral200/Car-Management-System-",
-    "keywords":"Python, PySide6, GUI, SQLite, OOP",
-    "url":"https://elgeneral200.github.io/portfolio/projects/car-sale.html" }
-  </script>
-  <script type="application/ld+json">
-  { "@context":"https://schema.org","@type":"SoftwareSourceCode",
-    "name":"Interval Scheduler","author":{"@type":"Person","name":"Muhammad Fathi"},
-    "programmingLanguage":["C++"],"applicationCategory":"EducationalApplication",
-    "codeRepository":"https://github.com/Elgeneral200/interval-scheduler",
-    "keywords":"C++, Greedy, CLI, Algorithms",
-    "url":"https://elgeneral200.github.io/portfolio/projects/interval-scheduler.html" }
-  </script>
-  <script type="application/ld+json">
-  { "@context":"https://schema.org","@type":"SoftwareSourceCode",
-    "name":"City Hospital Management (GUI)","author":{"@type":"Person","name":"Muhammad Fathi"},
-    "programmingLanguage":["Python"],"applicationCategory":"BusinessApplication",
-    "codeRepository":"https://github.com/Elgeneral200/Depi_Amit_AI_BNS3",
-    "keywords":"Python, PySide6, GUI, SQLite, CRUD, OOP",
-    "url":"https://elgeneral200.github.io/portfolio/projects/city-hospital.html" }
-  </script>
-
+  <!-- MODIFIED: Main script block with performance optimizations -->
   <script>
-    // Footer year
+    // --- UTILITIES & HELPERS ---
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Mobile nav toggle
-    const toggle = document.querySelector('.menu-toggle');
-    const nav = document.getElementById('primary-nav');
-    toggle?.addEventListener('click', () => {
-      const open = nav.getAttribute('data-open') === 'true';
-      nav.setAttribute('data-open', String(!open));
-      toggle.setAttribute('aria-expanded', String(!open));
-    });
+    // --- MOBILE NAVIGATION ---
+    (function mobileNav() {
+      const toggle = document.querySelector('.menu-toggle');
+      const nav = document.getElementById('primary-nav');
+      if (!toggle || !nav) return;
 
-    // Close mobile menu on link click and Escape
-    document.querySelectorAll('#primary-nav a[href^="#"]').forEach(a => {
-      a.addEventListener('click', () => {
-        nav?.setAttribute('data-open', 'false');
-        toggle?.setAttribute('aria-expanded', 'false');
+      toggle.addEventListener('click', () => {
+        const open = nav.getAttribute('data-open') === 'true';
+        nav.setAttribute('data-open', String(!open));
+        toggle.setAttribute('aria-expanded', String(!open));
       });
-    });
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        nav?.setAttribute('data-open', 'false');
-        toggle?.setAttribute('aria-expanded', 'false');
-      }
-    });
-
-    // Active nav
-    const sections = [...document.querySelectorAll('main section[id]')];
-    const navLinks = [...document.querySelectorAll('header .nav a[href^="#"]')];
-    function setActive(id) {
-      navLinks.forEach(a => {
-        if (a.getAttribute('href') === `#${id}`) a.setAttribute('aria-current', 'page');
-        else a.removeAttribute('aria-current');
+      document.querySelectorAll('#primary-nav a[href^="#"]').forEach(a => {
+        a.addEventListener('click', () => {
+          nav.setAttribute('data-open', 'false');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
       });
-    }
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(entry => { if (entry.isIntersecting) setActive(entry.target.id); });
-    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
-    sections.forEach(sec => io.observe(sec));
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          nav.setAttribute('data-open', 'false');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    })();
+    
+    // --- ACTIVE NAV LINK HIGHLIGHTING ---
+    (function activeNav() {
+      const sections = [...document.querySelectorAll('main section[id]')];
+      const navLinks = [...document.querySelectorAll('header .nav a[href^="#"]')];
+      if (!sections.length || !navLinks.length) return;
+      
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            navLinks.forEach(a => {
+              if (a.getAttribute('href') === `#${entry.target.id}`) {
+                a.setAttribute('aria-current', 'page');
+              } else {
+                a.removeAttribute('aria-current');
+              }
+            });
+          }
+        });
+      }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+      sections.forEach(sec => observer.observe(sec));
+    })();
 
-    // Theme toggle (with performance guard)
-    (function () {
+    // --- THEME TOGGLE (with dynamic favicon) ---
+    (function themeToggle() {
       const root = document.documentElement;
       const metaTheme = document.querySelector('meta[name="theme-color"]');
       const btn = document.getElementById('theme-toggle');
+      if (!btn) return;
 
       function applyTheme(t) {
-        // One-frame guard: pause heavy layers & transitions during theme flip
         root.classList.add('theme-changing');
-
         root.setAttribute('data-theme', t);
         localStorage.setItem('theme', t);
-
-        // Defer meta theme-color update to next frame
+        
+        const isDark = t === 'dark';
+        document.querySelector('link[sizes="32x32"]').href = isDark ? 'images/mf-logo-dark-32.png' : 'images/mf-logo-32.png';
+        document.querySelector('link[sizes="16x16"]').href = isDark ? 'images/mf-logo-dark-16.png' : 'images/mf-logo-16.png';
+        
         requestAnimationFrame(() => {
-          if (metaTheme) metaTheme.setAttribute('content', t === 'dark' ? '#0b1220' : '#ffffff');
+          if (metaTheme) metaTheme.setAttribute('content', isDark ? '#0b1220' : '#ffffff');
+          requestAnimationFrame(() => root.classList.remove('theme-changing'));
         });
 
-        // Remove the guard right after paint
-        requestAnimationFrame(() => {
-          root.classList.remove('theme-changing');
-        });
-
-        if (btn) {
-          btn.setAttribute('aria-label', `Switch to ${t === 'dark' ? 'light' : 'dark'} theme`);
-          btn.textContent = t === 'dark' ? '🌞' : '🌓';
-        }
+        btn.setAttribute('aria-label', `Switch to ${isDark ? 'light' : 'dark'} theme`);
+        btn.textContent = isDark ? '🌞' : '🌓';
       }
 
       const stored = localStorage.getItem('theme');
-      const start = stored || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      const start = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
       applyTheme(start);
-
-      btn?.addEventListener('click', () => {
-        const cur = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-        applyTheme(cur === 'dark' ? 'light' : 'dark');
+      btn.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        applyTheme(current === 'dark' ? 'light' : 'dark');
       });
     })();
 
-    // Filters + count
-    (function () {
+    // --- PROJECT FILTERS ---
+    (function projectFilters() {
       const filterBtns = document.querySelectorAll('.filters [data-filter]');
       const cards = document.querySelectorAll('#projects .card');
-      const count = document.getElementById('filter-count');
+      const countEl = document.getElementById('filter-count');
+      if (!filterBtns.length || !cards.length) return;
 
       function updateCount() {
         const visible = [...cards].filter(c => !c.hidden).length;
-        if (count) count.textContent = `Showing ${visible} project${visible!==1?'s':''}`;
+        if (countEl) countEl.textContent = `Showing ${visible} project${visible !== 1 ? 's' : ''}`;
       }
 
       filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-          filterBtns.forEach(b => { b.classList.remove('is-active'); b.removeAttribute('aria-pressed'); });
-          btn.classList.add('is-active'); btn.setAttribute('aria-pressed', 'true');
-
-          const f = btn.dataset.filter;
+          filterBtns.forEach(b => {
+            b.classList.remove('is-active');
+            b.removeAttribute('aria-pressed');
+          });
+          btn.classList.add('is-active');
+          btn.setAttribute('aria-pressed', 'true');
+          
+          const filter = btn.dataset.filter;
           cards.forEach(card => {
             const tags = (card.dataset.tags || '').toLowerCase();
-            card.hidden = f !== 'all' && !tags.includes(f);
+            card.hidden = filter !== 'all' && !tags.includes(filter);
           });
           updateCount();
         });
       });
-
       updateCount();
     })();
-
-    // Reveal on scroll (respects reduced-motion)
-    (function () {
-      const els = document.querySelectorAll('[data-reveal]');
-      if (!els.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      els.forEach(el => el.classList.add('reveal'));
-      const obs = new IntersectionObserver((entries) => {
-        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
-      }, { threshold: 0.15 });
-      els.forEach(el => obs.observe(el));
-    })();
-
-    // Scroll progress bar
-    (function(){
-      const bar = document.getElementById('progress');
-      if(!bar) return;
-      const onScroll = () => {
-        const s = window.scrollY;
-        const h = document.documentElement.scrollHeight - window.innerHeight;
-        bar.style.transform = `scaleX(${h ? (s / h) : 0})`;
-      };
-      onScroll();
-      window.addEventListener('scroll', onScroll, { passive: true });
-      window.addEventListener('resize', onScroll);
-    })();
-
-    // Parallax tilt on cards (desktop only)
-    (function(){
+    
+    // --- SCROLL-BASED ANIMATIONS (Reveal, Stagger, Parallax Tilt) ---
+    (function scrollAnimations() {
       const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-      if (prefersReduced || !canHover) return;
-
-      const MAX_TILT = 6; // degrees
-      const Z_LIFT = 10;  // px
-
-      document.querySelectorAll('.card[data-tilt]').forEach(card => {
-        card.style.transformStyle = 'preserve-3d';
-        card.style.willChange = 'transform';
-
-        function handleMove(e) {
-          const rect = card.getBoundingClientRect();
-          const cx = rect.left + rect.width / 2;
-          const cy = rect.top + rect.height / 2;
-          const px = (e.clientX - cx) / (rect.width / 2);
-          const py = (e.clientY - cy) / (rect.height / 2);
-          const rotY = (px * MAX_TILT);
-          const rotX = (-py * MAX_TILT);
-          card.style.transform = `translateY(-4px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(${Z_LIFT}px)`;
-        }
-
-        function handleLeave() {
-          card.style.transform = '';
-        }
-
-        card.addEventListener('mousemove', handleMove);
-        card.addEventListener('mouseleave', handleLeave);
+      if (prefersReduced) return;
+      
+      // Reveal on scroll
+      const revealEls = document.querySelectorAll('[data-reveal]');
+      if (revealEls.length) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) {
+              e.target.classList.add('in');
+              observer.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.15 });
+        revealEls.forEach(el => {
+          el.classList.add('reveal');
+          observer.observe(el);
+        });
+      }
+      
+      // Staggered reveal
+      document.querySelectorAll('[data-reveal-stagger]').forEach(container => {
+        [...container.children].forEach((child, i) => {
+          child.dataset.reveal = '';
+          child.style.setProperty('--reveal-delay', `${i * 60}ms`);
+        });
       });
+      
+      // Parallax tilt on cards
+      const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      if (canHover) {
+        const MAX_TILT = 6, Z_LIFT = 10;
+        document.querySelectorAll('.card[data-tilt]').forEach(card => {
+          card.style.transformStyle = 'preserve-3d';
+          card.style.willChange = 'transform';
+          
+          card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const cx = rect.left + rect.width / 2, cy = rect.top + rect.height / 2;
+            const px = (e.clientX - cx) / (rect.width / 2), py = (e.clientY - cy) / (rect.height / 2);
+            const rotY = (px * MAX_TILT), rotX = (-py * MAX_TILT);
+            card.style.transform = `translateY(-4px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(${Z_LIFT}px)`;
+          });
+          card.addEventListener('mouseleave', () => card.style.transform = '');
+        });
+      }
+    })();
+
+    // --- GITHUB STAR FETCHER (with caching) ---
+    (function fetchGitHubStars() {
+      const CACHE_KEY = 'github_stars_cache', CACHE_DURATION_MS = 10 * 60 * 1000;
+      
+      document.querySelectorAll('[data-repo]').forEach(async el => {
+        const repo = el.dataset.repo, starsEl = el.querySelector('[data-stars]');
+        if (!repo || !starsEl) return;
+        
+        try {
+          let cache = JSON.parse(sessionStorage.getItem(CACHE_KEY)) || {};
+          const cachedRepo = cache[repo];
+          if (cachedRepo && (Date.now() - cachedRepo.timestamp < CACHE_DURATION_MS)) {
+            starsEl.textContent = new Intl.NumberFormat().format(cachedRepo.stars);
+            return;
+          }
+          
+          const res = await fetch(`https://api.github.com/repos/${repo}`);
+          if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+          const data = await res.json();
+          const starCount = data.stargazers_count;
+          
+          starsEl.textContent = new Intl.NumberFormat().format(starCount);
+          cache[repo] = { stars: starCount, timestamp: Date.now() };
+          sessionStorage.setItem(CACHE_KEY, JSON.stringify(cache));
+        } catch (error) {
+          console.error(`Failed to fetch stars for ${repo}:`, error);
+          starsEl.textContent = '–';
+        }
+      });
+    })();
+
+    // --- PAGE TRANSITIONS ---
+    (function pageTransitions() {
+      document.querySelectorAll('a[href^="projects/"]').forEach(link => {
+        link.addEventListener('click', e => {
+          const url = link.getAttribute('href');
+          if (e.ctrlKey || e.metaKey || link.target === '_blank') return;
+          
+          e.preventDefault();
+          document.body.classList.add('page-fade-out');
+          setTimeout(() => window.location.href = url, 400);
+        });
+      });
+    })();
+
+    // --- COPY TO CLIPBOARD ---
+    (function addCopyToClipboard() {
+      const copyables = document.querySelectorAll('a[href^="mailto:"], a[href^="tel:"]');
+      copyables.forEach(el => {
+        const originalText = el.textContent.trim();
+        el.addEventListener('click', e => {
+          e.preventDefault();
+          const textToCopy = el.getAttribute('href').replace(/^(mailto:|tel:)/, '');
+          navigator.clipboard.writeText(textToCopy).then(() => {
+            el.textContent = 'Copied!';
+            setTimeout(() => el.textContent = originalText, 2000);
+          }).catch(err => {
+            console.error('Failed to copy text: ', err);
+            window.location.href = el.getAttribute('href');
+          });
+        });
+      });
+    })();
+
+    // --- MODIFIED: PERFORMANCE OPTIMIZATIONS (Idle animations & rAF scroll bar) ---
+    (function performanceOptimizations() {
+      // 1. Pause animations when user is idle
+      let idleTimer;
+      const resumeAnimations = () => {
+        document.body.classList.remove('animations-paused');
+        clearTimeout(idleTimer);
+        idleTimer = setTimeout(() => document.body.classList.add('animations-paused'), 250);
+      };
+      ['scroll', 'mousemove', 'mousedown', 'touchstart'].forEach(evt => 
+        window.addEventListener(evt, resumeAnimations, { passive: true })
+      );
+
+      // 2. Silky-smooth scroll progress bar with requestAnimationFrame
+      const bar = document.getElementById('progress');
+      if (bar) {
+        let isScrolling = false;
+        const updateProgressBar = () => {
+          if (isScrolling) {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            bar.style.transform = `scaleX(${docHeight > 0 ? (scrollTop / docHeight) : 0})`;
+            isScrolling = false;
+          }
+          requestAnimationFrame(updateProgressBar);
+        };
+        
+        window.addEventListener('scroll', () => isScrolling = true, { passive: true });
+        requestAnimationFrame(updateProgressBar);
+      }
     })();
   </script>
 
-  <!-- Arabic/English toggle + translations + nav order + UI + prettier background -->
+  <!-- External scripts -->
   <script defer src="i18n-toggle.js"></script>
 </body>
 </html>

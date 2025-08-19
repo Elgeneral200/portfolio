@@ -53,6 +53,22 @@ body {
   scrollbar-width: thin;
 }
 
+/* ADDED: Centralized focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+a, button, input {
+  /* Remove the default outline now that we have a better one */
+  outline: none;
+}
+.site-header .nav a:focus-visible, .site-header .nav button.btn:focus-visible, .btn:focus-visible {
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 60%, transparent);
+  border-radius: 10px;
+}
+/* END ADDED */
+
 /* Ambient background (subtle) */
 body::before {
   content: "";
@@ -396,6 +412,14 @@ nav {
 .reveal { opacity: 0; transform: translateY(16px) scale(0.985); transition: opacity .6s ease, transform .6s ease; transition-delay: var(--reveal-delay, 0s); }
 .reveal.in { opacity: 1; transform: none; }
 
+/* ADDED: Page transition animations */
+body { animation: page-fade-in 0.5s ease forwards; }
+body.page-fade-out { animation: page-fade-out 0.4s ease forwards; }
+
+@keyframes page-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes page-fade-out { from { opacity: 1; } to { opacity: 0; } }
+/* END ADDED */
+
 @keyframes floaty { 0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(0,-1.5%,0) scale(1.01)} }
 @keyframes title-shimmer { 0%,100%{background-position:0% 50%}50%{background-position:100% 50%} }
 @keyframes sheen-move { 0%{transform:translateX(-130%) skewX(-12deg);opacity:0}15%{opacity:.25}60%{opacity:.18}100%{transform:translateX(130%) skewX(-12deg);opacity:0} }
@@ -406,6 +430,8 @@ nav {
   body::before, .hero-text h1, .card::after, .btn::after, .section h2::after, #projects::after, .reveal {
     animation: none !important; transition: none !important;
   }
+  /* ADDED: Disable page transitions on reduced motion */
+  body, body.page-fade-out { animation: none !important; }
 }
 
 /* Theme overrides */
