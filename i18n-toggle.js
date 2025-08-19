@@ -601,26 +601,6 @@
     startObserverIfAr();
   }
 
-  // Background parallax
-  function startBgParallax() {
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReduced) return;
-    const wrap = document.getElementById('bg-decor');
-    if (!wrap) return;
-    let ticking = false;
-    const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        const y = window.scrollY || 0;
-        wrap.style.setProperty('--shift', `${Math.min(60, y * 0.03)}px`);
-        ticking = false;
-      });
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-  }
-
   function init() {
     addStyles();
     // Prettier background
