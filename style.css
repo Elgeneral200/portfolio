@@ -446,21 +446,39 @@ html.theme-changing *::after {
   transition: none !important;
   animation: none !important;
 }
-
-/* Temporarily suppress the heaviest layers just for the toggle frame */
 html.theme-changing body::before,
 html.theme-changing body::after {
   opacity: 0 !important;
   filter: none !important;
 }
-
 html.theme-changing .site-header {
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
 }
-
 html.theme-changing #bg-decor {
   opacity: 0 !important;
   visibility: hidden !important;
   filter: none !important;
+}
+
+/* ================= Compositing/performance hints for smooth scroll ================ */
+/* Promote fixed heavy layers to GPU, isolate paints; technical only (no visual change) */
+body::before,
+body::after {
+  will-change: transform, opacity, filter;
+  transform: translateZ(0);
+  contain: paint;
+}
+.site-header {
+  transform: translateZ(0);
+  will-change: backdrop-filter, transform;
+}
+#bg-decor,
+#bg-decor .blob,
+#bg-decor .aurora,
+#bg-decor .aurora .r {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  contain: paint;
 }

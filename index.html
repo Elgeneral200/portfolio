@@ -249,7 +249,7 @@
           mudiifathii@gmail.com
         </a>
         <a class="btn outline" href="https://github.com/Elgeneral200" target="_blank" rel="noopener" aria-label="GitHub">
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.77 5.46.77 11.74c0 4.93 3.2 9.1 7.64 10.58.56.11.77-.24.77-.54 0-.27-.01-1.15-.02-2.08-3.11.68-3.77-1.33-3.77-1.33-.51-1.3-1.24-1.65-1.24-1.65-1.02-.7.08-.69.08-.69 1.12.08 1.71 1.15 1.71 1.15 1 .1.87 1.73 2.68 2.21.71-.5 1.38-.96 1.38-.96-.76-.06-1.57-.35-2.35-.89-1.49-.99-2.01-2.43-2.01-2.43-.48-1.21-.17-2.11-.08-2.33.23-.05.49-.08.85-.08 1.27 0 2.3.9 2.3.9.78-.22 1.61-.33 2.44-.33 0 0 1.03-.9 2.3-.9.36 0 .63.03 .85 .08 .09 .22 .4 1.12-.08 2.33 0 0-.52 1.44-2.01 2.43-.79 .52-1.65 .83-2.43 .89 0 0 .67 .46 1.38 .96 1.81-.48 1.67-2.11 2.67-2.21 0 0 .59-1.07 1.71-1.15 0 0 1.1-.02.08.69 0 0-.73 .35-1.24 1.65 0 0-.66 2.01-3.77 1.33-.01 .93-.02 1.81-.02 2.08 0 .3 .2 .66 .77 .54 4.44-1.49 7.64-5.66 7.64-10.58C23.23 5.46 18.27.5 12 .5z"/></svg>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.77 5.46.77 11.74c0 4.93 3.2 9.1 7.64 10.58.56.11.77-.24.77-.54 0-.27-.01-1.15-.02-2.08-3.11.68-3.77-1.33-3.77-1.33-.51-1.3-1.24-1.65-1.24-1.65-1.02-.7.08-.69.08-.69 1.12.08 1.71 1.15 1.71 1.15 1 .1.87 1.73 2.68 2.21.71-.5 1.38-.96 1.38-.96-.76-.06-1.57-.35-2.35-.89-1.49-.99-2.01-2.43-2.01-2.43-.48-1.21-.17-2.11-.08-2.33.23-.05.49-.08.85-.08 1.27 0 2.3.9 2.3.9.78-.22 1.61-.33 2.44-.33 0 0 1.03-.9 2.3-.9.36 0 .63.03.85.08.09.22.4 1.12-.08 2.33 0 0-.52 1.44-2.01 2.43-.79.52-1.65.83-2.43.89 0 0 .67.46 1.38.96 1.81-.48 1.67-2.11 2.67-2.21 0 0 .59-1.07 1.71-1.15 0 0 1.1-.02.08.69 0 0-.73.35-1.24 1.65 0 0-.66 2.01-3.77 1.33-.01.93-.02 1.81-.02 2.08 0 .3.2.66.77.54 4.44-1.49 7.64-5.66 7.64-10.58C23.23 5.46 18.27.5 12 .5z"/></svg>
           GitHub: Elgeneral200
         </a>
         <a class="btn outline" href="https://www.linkedin.com/in/muhammad-fathi-526745287" target="_blank" rel="noopener" aria-label="LinkedIn">
@@ -366,18 +366,18 @@
       const btn = document.getElementById('theme-toggle');
 
       function applyTheme(t) {
-        // Add a one-frame guard to pause heavy layers and transitions
+        // One-frame guard: pause heavy layers & transitions during theme flip
         root.classList.add('theme-changing');
 
         root.setAttribute('data-theme', t);
         localStorage.setItem('theme', t);
 
-        // Defer meta theme-color update to the next frame to avoid extra work in the same frame
+        // Defer meta theme-color update to next frame
         requestAnimationFrame(() => {
           if (metaTheme) metaTheme.setAttribute('content', t === 'dark' ? '#0b1220' : '#ffffff');
         });
 
-        // Remove the guard shortly after paint
+        // Remove the guard right after paint
         requestAnimationFrame(() => {
           root.classList.remove('theme-changing');
         });

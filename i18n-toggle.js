@@ -267,22 +267,30 @@
     document.body.appendChild(wrapper);
   }
 
-  // Tiny parallax
+  // Tiny parallax (throttled to 30fps for smooth scrolling)
   function startBgParallax() {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReduced) return;
     const wrap = document.getElementById('bg-decor');
     if (!wrap) return;
+
     let ticking = false;
+    let lastTs = 0;
+    const FRAME_MS = 1000 / 30; // 30 fps
+
     const onScroll = () => {
       if (ticking) return;
       ticking = true;
-      requestAnimationFrame(() => {
-        const y = window.scrollY || 0;
-        wrap.style.setProperty('--shift', `${Math.min(60, y * 0.03)}px`);
+      requestAnimationFrame((ts) => {
+        if (ts - lastTs >= FRAME_MS) {
+          lastTs = ts;
+          const y = window.scrollY || 0;
+          wrap.style.setProperty('--shift', `${Math.min(60, y * 0.03)}px`);
+        }
         ticking = false;
       });
     };
+
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
   }
