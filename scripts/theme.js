@@ -1,35 +1,34 @@
 (() => {
   'use strict';
 
-  function applyTheme(t) {
-    const root = document.documentElement;
-    const metaTheme = document.querySelector('meta[name="theme-color"]');
-    const btn = document.getElementById('theme-toggle');
-
-    root.setAttribute('data-theme', t);
-    localStorage.setItem('theme', t);
-
-    const isDark = t === 'dark';
-    if (metaTheme) metaTheme.setAttribute('content', isDark ? '#0b1220' : '#ffffff');
-
-    if (btn) {
-      btn.setAttribute('aria-label', `Switch to ${isDark ? 'light' : 'dark'} theme`);
-      btn.textContent = isDark ? '🌞' : '🌓';
-    }
-  }
-
   function initTheme() {
-    const stored = localStorage.getItem('theme');
-    const start = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    applyTheme(start);
-
     const btn = document.getElementById('theme-toggle');
-    btn && btn.addEventListener('click', () => {
-      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      applyTheme(next);
+    if (!btn) return;
+
+    const saved = localStorage.getItem('theme');
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initial = saved || (systemDark ? 'dark' : 'light');
+    
+    document.documentElement.setAttribute('data-theme', initial);
+    updateToggleIcon(btn, initial);
+
+    btn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateToggleIcon(btn, next);
     });
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initTheme);
-  else initTheme();
+  function updateToggleIcon(btn, theme) {
+    btn.textContent = theme === 'dark' ? '☀️' : '🌓';
+    btn.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTheme);
+  } else {
+    initTheme();
+  }
 })();

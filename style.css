@@ -47,15 +47,245 @@ html:not(.has-custom-cursor) .cursor { display: none !important; }
 
 html, body { height: 100%; }
 html { scroll-behavior: smooth; }
+
+/* Enhanced font stack with Arabic support */
 body {
   margin: 0;
-  font: 400 var(--step-0)/1.6 Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font: 400 var(--step-0)/1.6 Inter, "Noto Sans Arabic", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
   color: var(--fg);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   scrollbar-color: color-mix(in srgb, var(--accent) 35%, var(--bg)) color-mix(in srgb, var(--bg) 96%, transparent);
   scrollbar-width: thin;
+}
+
+/* Arabic font support */
+html[dir="rtl"] body,
+html[lang="ar"] body {
+  font-family: "Noto Sans Arabic", Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+/* Skeleton loading animation */
+.skeleton-text {
+  background: linear-gradient(90deg, 
+    color-mix(in srgb, var(--border) 80%, transparent) 25%, 
+    color-mix(in srgb, var(--border) 50%, transparent) 50%, 
+    color-mix(in srgb, var(--border) 80%, transparent) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+  border-radius: 4px;
+  color: transparent !important;
+  user-select: none;
+}
+
+@keyframes skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Remove skeleton when content loads */
+.skeleton-text.loaded {
+  background: none;
+  color: inherit !important;
+  animation: none;
+}
+
+/* Micro-animations */
+.animate-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dynamic text styling and animation */
+.dynamic-hero {
+  margin: 0;
+  font-size: var(--step-3);
+  line-height: 1.1;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.dynamic-text {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  min-height: 1.2em;
+  min-width: 3ch;
+}
+
+/* Typing cursor */
+.dynamic-text::after {
+  content: '';
+  position: absolute;
+  right: -3px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: var(--accent);
+  animation: blink 1s infinite;
+}
+
+/* RTL cursor positioning */
+html[dir="rtl"] .dynamic-text::after {
+  right: auto;
+  left: -3px;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Breathing avatar animation */
+.avatar.breathing {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+/* Enhanced project card hover effects */
+.card.enhanced-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.card.enhanced-hover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(135deg, transparent, color-mix(in srgb, var(--accent) 30%, transparent), transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: exclude;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card.enhanced-hover:hover::before {
+  opacity: 1;
+}
+
+.card.enhanced-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(79, 70, 229, 0.15);
+}
+
+.card.enhanced-hover .card-media {
+  position: relative;
+  overflow: hidden;
+}
+
+.card.enhanced-hover .gif-preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card.enhanced-hover:hover .gif-preview {
+  opacity: 1;
+}
+
+/* Skills visualization */
+.skills-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.skill-item {
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: slideInFromLeft 0.6s ease forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+/* RTL skill animation */
+html[dir="rtl"] .skill-item {
+  transform: translateX(30px);
+}
+
+@keyframes slideInFromLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.skill-name {
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.skill-level {
+  font-size: var(--step--1);
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.skill-bar {
+  height: 8px;
+  background: color-mix(in srgb, var(--border) 50%, transparent);
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  border-radius: inherit;
+  width: 0;
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.skill-progress::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3));
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
 /* Custom cursor – centered in both LTR/RTL */
@@ -376,7 +606,7 @@ body.page-fade-out { animation: page-fade-out 0.4s ease forwards; }
 @keyframes grid-move { 0%{background-position:0 0} 100%{background-position:100px 60px} }
 
 @media (prefers-reduced-motion: reduce) {
-  body::before, .card::after, .btn::after, .section h2::after, #projects::after, .reveal {
+  body::before, .card::after, .btn::after, .section h2::after, #projects::after, .reveal, .skeleton-text, .animate-in, .skill-item, .breathing, .dynamic-text::after {
     animation: none !important; transition: none !important;
   }
   body, body.page-fade-out { animation: none !important; }
