@@ -38,11 +38,8 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           navLinks.forEach(a => {
-            if (a.getAttribute('href') === `#${entry.target.id}`) {
-              a.setAttribute('aria-current', 'page');
-            } else {
-              a.removeAttribute('aria-current');
-            }
+            if (a.getAttribute('href') === `#${entry.target.id}`) a.setAttribute('aria-current', 'page');
+            else a.removeAttribute('aria-current');
           });
         }
       });
@@ -64,12 +61,8 @@
 
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
-        filterBtns.forEach(b => {
-          b.classList.remove('is-active');
-          b.removeAttribute('aria-pressed');
-        });
-        btn.classList.add('is-active');
-        btn.setAttribute('aria-pressed', 'true');
+        filterBtns.forEach(b => { b.classList.remove('is-active'); b.removeAttribute('aria-pressed'); });
+        btn.classList.add('is-active'); btn.setAttribute('aria-pressed', 'true');
 
         const filter = btn.dataset.filter;
         cards.forEach(card => {
