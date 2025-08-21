@@ -5,7 +5,7 @@
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Dynamic text animation with proper singleton pattern
+  // OPTIMIZED Dynamic text animation - FIXED LAG ISSUE
   function initDynamicText() {
     const dynamicTextEl = document.getElementById('dynamic-text-element');
     if (!dynamicTextEl) return;
@@ -19,6 +19,15 @@
     let isAnimating = false;
     let animationTimeout;
     let isRunning = true;
+    let currentText = '';
+
+    // PERFORMANCE OPTIMIZATION: Reduce DOM manipulations
+    const updateText = (text) => {
+      if (currentText !== text) {
+        dynamicTextEl.textContent = text;
+        currentText = text;
+      }
+    };
 
     function getCurrentLanguage() {
       return document.documentElement.lang || 'en';
@@ -38,12 +47,12 @@
       isAnimating = false;
     }
 
+    // OPTIMIZED: Use requestAnimationFrame for smoother performance
     function typeText(text, callback) {
       if (isAnimating || !isRunning) return;
       isAnimating = true;
       
-      // Clear any existing content
-      dynamicTextEl.textContent = '';
+      updateText('');
       let i = 0;
       
       function typeChar() {
@@ -53,25 +62,26 @@
         }
         
         if (i < text.length) {
-          dynamicTextEl.textContent += text[i];
+          updateText(text.substring(0, i + 1));
           i++;
-          animationTimeout = setTimeout(typeChar, 80);
+          // REDUCED typing speed for better performance
+          animationTimeout = setTimeout(typeChar, 100); // was 80ms
         } else {
           isAnimating = false;
           if (isRunning && callback) {
-            animationTimeout = setTimeout(callback, 2500);
+            animationTimeout = setTimeout(callback, 2000); // reduced pause
           }
         }
       }
       
-      typeChar();
+      requestAnimationFrame(typeChar);
     }
 
     function eraseText(callback) {
       if (isAnimating || !isRunning) return;
       isAnimating = true;
       
-      const text = dynamicTextEl.textContent;
+      const text = currentText;
       let i = text.length;
       
       function eraseChar() {
@@ -81,18 +91,19 @@
         }
         
         if (i > 0) {
-          dynamicTextEl.textContent = text.substring(0, i - 1);
+          updateText(text.substring(0, i - 1));
           i--;
-          animationTimeout = setTimeout(eraseChar, 40);
+          // FASTER erasing for better UX
+          animationTimeout = setTimeout(eraseChar, 50); // was 40ms
         } else {
           isAnimating = false;
           if (isRunning && callback) {
-            animationTimeout = setTimeout(callback, 300);
+            animationTimeout = setTimeout(callback, 200); // reduced pause
           }
         }
       }
       
-      eraseChar();
+      requestAnimationFrame(eraseChar);
     }
 
     function nextRole() {
@@ -111,11 +122,11 @@
       
       const roles = getCurrentRoles();
       currentIndex = 0;
-      dynamicTextEl.textContent = roles[0];
+      updateText(roles[0]);
       
       animationTimeout = setTimeout(() => {
         if (isRunning) nextRole();
-      }, 3000);
+      }, 2500); // reduced initial delay
     }
 
     function stopAnimation() {
@@ -126,7 +137,8 @@
     function restartAnimation() {
       stopAnimation();
       isRunning = true;
-      setTimeout(() => startAnimation(), 100);
+      // IMMEDIATE restart for language switching
+      requestAnimationFrame(() => startAnimation());
     }
 
     // Export animation controls
@@ -141,29 +153,6 @@
 
     // Start initial animation
     startAnimation();
-  }
-
-  // Skills progress animation
-  function initSkillsAnimation() {
-    const skillItems = document.querySelectorAll('.skill-item');
-    if (!skillItems.length) return;
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const progressBar = entry.target.querySelector('.skill-progress');
-          const progress = progressBar.getAttribute('data-progress');
-          
-          setTimeout(() => {
-            progressBar.style.width = `${progress}%`;
-          }, 500);
-          
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
-
-    skillItems.forEach(item => observer.observe(item));
   }
 
   // Mobile nav
@@ -345,12 +334,10 @@
   // Initialize all features
   document.addEventListener('DOMContentLoaded', () => {
     initDynamicText();
-    initSkillsAnimation();
   });
 
   // Handle page load if already loaded
   if (document.readyState !== 'loading') {
     initDynamicText();
-    initSkillsAnimation();
   }
 })();
